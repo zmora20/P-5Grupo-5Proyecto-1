@@ -9,6 +9,6 @@ package Animal;
  *
  * @author leonvargas
  */
-public class Gato {
+public class Gato extends Animal{
     
 }

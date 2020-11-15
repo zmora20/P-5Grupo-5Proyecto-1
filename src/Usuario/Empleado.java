@@ -9,6 +9,6 @@ package Usuario;
  *
  * @author zaida
  */
-public class Empleado {
+public class Empleado extends Usuario {
     
 }
