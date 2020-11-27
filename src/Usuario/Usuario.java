@@ -4,11 +4,40 @@
  * and open the template in the editor.
  */
 package Usuario;
+import java.time.LocalDate;
 
 /**
  *
  * @author zaida
  */
 public class Usuario {
+    private String correoElectronico;
+    private String direccion;
+    private int telefono;
+    private String nombre;
+    public LocalDate fechaInicio;
+    private double sueldo;
+    public String usuario;
+    protected String contraseña;
+    
+    
+    public String GetCorreoElectronico(){
+        return correoElectronico;
+    }
+    public String GetDireccion(){
+        return direccion;
+    }
+    public int GetTelefono(){
+        return telefono;
+    }
+    public String GetNombre(){
+        return nombre;
+    }
+    public double GetSueldo(){
+        return sueldo;
+    }
+    
+    
+    
     
 }

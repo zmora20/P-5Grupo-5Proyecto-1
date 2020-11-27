@@ -3,20 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Animal;
-
+package Fundacion;
+import java.time.LocalDate;
+import Animal.* ;
 /**
  *
- * @author leonvargas
+ * @author zaida
  */
-public class Gato extends Animal{
+public class GastosVeterinarias {
+    public LocalDate fechaAtencion;
+    private double monto;
+    public Animal animal;
     
-    
-    @Override
-    public double calcularGasto(){
-        int gasto=0;
-        return gasto;
-    }
     
     
     

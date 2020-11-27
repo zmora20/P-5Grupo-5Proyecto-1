@@ -10,5 +10,13 @@ package Animal;
  * @author leonvargas
  */
 public class Perro extends Animal {
+    public Size size;
+    
+    
+    @Override
+    public double calcularGasto(){
+        int gasto=0;
+    return gasto;
+    }
     
 }

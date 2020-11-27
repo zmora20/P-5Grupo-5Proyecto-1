@@ -10,5 +10,9 @@ package Usuario;
  * @author zaida
  */
 public class Administrador extends Usuario {
+    private int numeroCuenta;
     
+
+
 }
+

@@ -7,17 +7,9 @@ package Animal;
 
 /**
  *
- * @author leonvargas
+ * @author zaida
  */
-public class Gato extends Animal{
-    
-    
-    @Override
-    public double calcularGasto(){
-        int gasto=0;
-        return gasto;
-    }
-    
-    
+public enum Sexo {
+    MACHO,HEMBRA;
     
 }
