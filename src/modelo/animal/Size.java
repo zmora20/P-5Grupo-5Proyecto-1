@@ -3,21 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Animal;
+package modelo.animal;
 
 /**
  *
- * @author leonvargas
+ * @author zaida
  */
-public class Gato extends Animal{
-    
-    
-    @Override
-    public double calcularGasto(){
-        int gasto=0;
-        return gasto;
-    }
-    
-    
-    
+public enum Size {
+    PEQUENIO,MEDIANO,GRANDE;
 }

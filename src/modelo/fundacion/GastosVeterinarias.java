@@ -3,16 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Fundacion;
+package modelo.fundacion;
+import modelo.animal.Animal;
 import java.time.LocalDate;
-
 /**
  *
  * @author zaida
  */
-public class Adopcion {
-    private LocalDate fecha;
-    private String codigo;
+public class GastosVeterinarias {
+    public LocalDate fechaAtencion;
+    private double monto;
+    public Animal animal;
+    
+    
+    
     
 }
-
