@@ -4,11 +4,18 @@
  * and open the template in the editor.
  */
 package Fundacion;
-
+import java.util.ArrayList;
 /**
  *
  * @author zaida
  */
-public class Fundacion {
+public class Veterinaria {
+    public String nombre;
+    private  ArrayList<GastosVeterinarias>  gastoVeterinarias;
+    public int telefono;
+    public String correoElectronico;
+    
+   
+    
     
 }

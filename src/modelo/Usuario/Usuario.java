@@ -5,12 +5,16 @@
  */
 package modelo.Usuario;
 import java.time.LocalDate;
-
+import Fundacion.*;
+import java.util.ArrayList;
 /**
  *
  * @author zaida
  */
 public class Usuario {
+    public ArrayList <Usuario> empleados;
+    public ArrayList<Veterinaria> veterinarias;
+    
     private String correoElectronico;
     private String direccion;
     private int telefono;
