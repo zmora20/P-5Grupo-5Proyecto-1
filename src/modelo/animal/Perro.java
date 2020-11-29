@@ -15,8 +15,26 @@ public class Perro extends Animal {
     
     @Override
     public double calcularGasto(){
-        int gasto=0;
-    return gasto;
+        
+        double kilo=0;       
+        if(size!=null){
+            switch(size){
+                case GRANDE:
+                    kilo =40;
+                    break;
+                case MEDIANO:
+                     kilo =30;
+                     break;
+                case PEQUENIO:
+                    kilo =20;
+                    break;
+                default:
+                    return -1;                       
+            }
+            return kilo+1;
+        }
+        return -1;
+        
     }
     
 }

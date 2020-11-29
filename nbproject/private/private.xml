@@ -3,12 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Fabricio/Documents/proyecto%20poo/P-5Grupo-5Proyecto-1/src/modelo/fundacion/Veterinaria.java</file>
-            <file>file:/C:/Users/Fabricio/Documents/proyecto%20poo/P-5Grupo-5Proyecto-1/src/modelo/Usuario/Usuario.java</file>
-            <file>file:/C:/Users/Fabricio/Documents/proyecto%20poo/P-5Grupo-5Proyecto-1/src/modelo/Usuario/Empleado.java</file>
-            <file>file:/C:/Users/Fabricio/Documents/proyecto%20poo/P-5Grupo-5Proyecto-1/src/modelo/fundacion/ConsultasRegistros.java</file>
-            <file>file:/C:/Users/Fabricio/Documents/proyecto%20poo/P-5Grupo-5Proyecto-1/src/modelo/Usuario/Administrador.java</file>
-            <file>file:/C:/Users/Fabricio/Documents/proyecto%20poo/P-5Grupo-5Proyecto-1/src/modelo/fundacion/GastosVeterinaria.java</file>
+            <file>file:/C:/Users/zaida/Desktop/2020-2T/POOB/Proyecto-1Parcial/src/modelo/animal/Perro.java</file>
+            <file>file:/C:/Users/zaida/Desktop/2020-2T/POOB/Proyecto-1Parcial/src/modelo/animal/Gato.java</file>
+            <file>file:/C:/Users/zaida/Desktop/2020-2T/POOB/Proyecto-1Parcial/src/modelo/animal/Animal.java</file>
+            <file>file:/C:/Users/zaida/Desktop/2020-2T/POOB/Proyecto-1Parcial/src/modelo/fundacion/ConsultasRegistros.java</file>
+            <file>file:/C:/Users/zaida/Desktop/2020-2T/POOB/Proyecto-1Parcial/src/modelo/animal/Size.java</file>
         </group>
     </open-files>
 </project-private>
