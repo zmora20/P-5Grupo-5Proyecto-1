@@ -10,7 +10,7 @@ import java.time.LocalDate;
  *
  * @author zaida
  */
-public class GastosVeterinarias {
+public class GastosVeterinaria {
     public LocalDate fechaAtencion;
     private double monto;
     public Animal animal;

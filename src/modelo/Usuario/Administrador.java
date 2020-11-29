@@ -5,7 +5,7 @@
  */
 package modelo.Usuario;
 import modelo.fundacion.Veterinaria;
-import modelo.fundacion.GastosVeterinarias;
+import modelo.fundacion.GastosVeterinaria;
 
 
 /**
@@ -15,7 +15,9 @@ import modelo.fundacion.GastosVeterinarias;
 public class Administrador extends Usuario {
     private int numeroCuenta;
     
-
+public void EnviarCorreos(){
+    
+}
         
 
 }

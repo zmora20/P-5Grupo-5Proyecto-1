@@ -15,7 +15,7 @@ import modelo.Usuario.Usuario;
 public class ConsultasRegistros {
     public ArrayList <Usuario> empleados;
     public ArrayList<Veterinaria> veterinarias;
-    public ArrayList<GastosVeterinarias> gastosdeVeterinarias;
+    public ArrayList<GastosVeterinaria> gastosdeVeterinarias;
     
     public void agregarEmpleado(Usuario usu){
         for (int i= 0;i<empleados.size();i++){
@@ -24,7 +24,7 @@ public class ConsultasRegistros {
             if (s==sus.usuario){
                 empleados.add(usu);
             }else{
-                System.out.println("el usuario ya existe ");
+                System.out.println("el usuario ya existe pruebe con otro ");
             }
              
         }
@@ -46,12 +46,19 @@ public class ConsultasRegistros {
             
         
     }
-    public boolean reagistrarGastoVeterinaria (GastosVeterinarias gv){
+    public boolean reagistrarGastoVeterinaria (GastosVeterinaria gv){
         if (!gastosdeVeterinarias.contains(gv)){
             gastosdeVeterinarias.add(gv);
             return true;
         }
         return false;    
+    }
+    public void consultarGastoVeterinarias(){
+        for (GastosVeterinaria g : gastosdeVeterinarias ){
+            System.out.println(g);
+        }
+            
+        
     }
        
     

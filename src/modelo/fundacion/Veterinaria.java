@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public class Veterinaria {
     public String nombre;
-    private  ArrayList<GastosVeterinarias>  gastoVeterinarias;
+    private  ArrayList<GastosVeterinaria>  gastoVeterinarias;
     public int telefono;
     public String correoElectronico;
     
