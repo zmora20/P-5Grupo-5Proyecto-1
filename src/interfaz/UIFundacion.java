@@ -1,13 +1,32 @@
 
 package interfaz;
+import java.util.Scanner;
+import modelo.Usuario.*;
+import modelo.animal.*;
+import modelo.fundacion.*;
 
-/**
- *
- * @author Fabricio
- */
 public class UIFundacion {
-    /* aqui va el programa principal el cula te tica a zaida 
-    
-    */
+      public Scanner sc;
+      public modelo.fundacion.ConsultasRegistrosAdmin listas;
+
+      public void menuInicio(){
+        /*System.out.println("Bienvenido");
+        do{
+           System.out.print("Ingrese Usuario: ");
+            String usuario= sc.nextLine();
+           System.out.print("Ingrese Contraseña: ");
+           String contraseña=sc.nextLine();
+           if(  instanceof Empleado){
+               
+               
+           }
+                           
+        }*/
+      }
+      
+      
+      
+      
+      
     
 }
