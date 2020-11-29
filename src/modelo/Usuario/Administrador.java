@@ -6,6 +6,7 @@
 package modelo.Usuario;
 import modelo.fundacion.Veterinaria;
 import modelo.fundacion.GastosVeterinaria;
+import modelo.fundacion.ConsultasRegistrosAdmin;
 
 
 /**
@@ -14,10 +15,10 @@ import modelo.fundacion.GastosVeterinaria;
  */
 public class Administrador extends Usuario {
     private int numeroCuenta;
-    
-public void EnviarCorreos(){
-    
-}
+    public ConsultasRegistrosAdmin sc;
+
+   
+ 
         
 
 }

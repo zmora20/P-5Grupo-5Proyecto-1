@@ -15,6 +15,10 @@ public class GastosVeterinaria {
     private double monto;
     public Animal animal;
     
+    public double GetMonto(){
+        return monto;
+    }
+    
     
     
     

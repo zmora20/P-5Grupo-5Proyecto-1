@@ -6,13 +6,15 @@
 package modelo.fundacion;
 
 import java.util.ArrayList;
-import modelo.Usuario.Usuario;
+import modelo.Usuario.*;
+import modelo.Animal.*;
+import modelo.fundacion.*;
 
 /**
  *
  * @author Fabricio
  */
-public class ConsultasRegistros {
+public class ConsultasRegistrosAdmin {
     public ArrayList <Usuario> empleados;
     public ArrayList<Veterinaria> veterinarias;
     public ArrayList<GastosVeterinaria> gastosdeVeterinarias;
@@ -58,6 +60,24 @@ public class ConsultasRegistros {
             System.out.println(g);
         }
             
+        
+    }
+    public double calcularGastoMensual(){
+        double gastoAdministrativo=0;
+        double montoVeterinaria=0;
+        for (Usuario u : empleados){
+            double sueldoempleado= u.GetSueldo();
+            gastoAdministrativo=gastoAdministrativo+sueldoempleado;                 
+        }
+        for (GastosVeterinaria vete : gastosdeVeterinarias){
+            double dineroVeterinaria= vete.GetMonto();
+            montoVeterinaria=montoVeterinaria+dineroVeterinaria;
+        }
+        //*aqui va los gastos de los animales
+        
+        return gastoAdministrativo+montoVeterinaria;
+    }
+    public void enviarCorreo(){
         
     }
        
