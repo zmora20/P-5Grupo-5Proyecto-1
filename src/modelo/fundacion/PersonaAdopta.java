@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package modelo.fundacion;
+import java.util.ArrayList; 
 
 /**
  *
@@ -16,5 +17,5 @@ public class PersonaAdopta {
     private int telefono;
     private String correoElectro;
     public String preferencia;
-    
+    public ArrayList<PersonaAdopta> personas;
 }

@@ -5,6 +5,8 @@
  */
 package modelo.fundacion;
 import java.time.LocalDate;
+import modelo.animal.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,6 +15,7 @@ import java.time.LocalDate;
 public class Adopcion {
     private LocalDate fecha;
     private String codigo;
+    public ArrayList<Animal>animalesAdoptados;
     
 }
 

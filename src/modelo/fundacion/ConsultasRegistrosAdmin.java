@@ -19,17 +19,19 @@ public class ConsultasRegistrosAdmin {
     public ArrayList<Veterinaria> veterinarias;
     public ArrayList<GastosVeterinaria> gastosdeVeterinarias;
     
-    public void agregarEmpleado(Usuario usu){
+    public boolean agregarEmpleado(Usuario usu){
         for (int i= 0;i<empleados.size();i++){
             String s=usu.usuario;
             Usuario sus=empleados.get(i);           
             if (s==sus.usuario){
                 empleados.add(usu);
+                return true;
             }else{
                 System.out.println("el usuario ya existe pruebe con otro ");
             }
              
         }
+        return false;
       
     } 
     public boolean registrarVeterinaria(Veterinaria v){

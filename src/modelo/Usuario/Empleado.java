@@ -17,6 +17,7 @@ import java.time.format.DateTimeFormatter;
  */
 public class Empleado extends Usuario {
     public ArrayList<Animal> animales ;
+    
         
     
     LocalDate fecha=LocalDate.now();
@@ -27,6 +28,8 @@ public class Empleado extends Usuario {
                 "hhlo");
     
     public void consultarAnimal(){
+        
+    
         
     }
     
@@ -47,52 +50,18 @@ public class Empleado extends Usuario {
         }
         return false;
         
-        
     
-    public ArrayList<String> registrarPersona(PersonaAdopta p){
-        p = new PersonaAdopta();
+    public boolean registrarPersona(PersonaAdopta per){
         
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Ingrese nombre");
-        String nombre = sc.nextLine();
-        System.out.println("Ingrese identificacion");
-        String identificacion = sc.nextLine();
-        System.out.println("Ingrese direccion");
-        String direccion = sc.nextLine();
-        System.out.println("Ingrese telefono:");
-        String telefono = sc.nextLine();
-        System.out.println("Ingrese correo electronico:");
-        String correo = sc.nextLine();
-        System.out.println("Ingrese tipo de animal de preferencia:");
-        String animalPreferencia = sc.nextLine();
-        System.out.println("Ingrese raza de preferencia del animal:");
-        String razaPreferencia = sc.nextLine();
-        System.out.println("Ingrese sexo de animal de preferencia:");
-        String sexoDelAnimal = sc.nextLine();
-        
-        p.SetNombrePersona(nombre);
-        p.SetIdentificacion(identificacion);
-        p.SetDireccion(direccion);
-        p.SetTelefono(telefono);
-        p.SetCorreoElectro(correo);
-        p.SetAnimalPreferencia(animalPreferencia);
-        p.SetRazaPreferencia(razaPreferencia);
-        p.SetSexoAnimalPreferencia(sexoDelAnimal);
-        
-        
-        ArrayList<String> personas = new ArrayList();
-        String persona = p.GetNombrePersona()+','+p.GetIdentificacion()+','+
-                p.GetDireccion()+','+p.GetTelefono()+','+
-                p.GetCorreoElectro()+','+p.GetAnimalPreferencia()+','+
-                p.GetRazaPreferencia()+','+p.GetSexoAnimalPreferencia();
-        
-        personas.add(persona);
-        
-        return personas;
-        
+        if (per.personas.contains(per)){
+            per.personas.add(per);
+        }
+        return false;
     }
     
-    public void registrarAdopcion(Perro pe, Gato g, PersonaAdopta p){
+    public void registrarAdopcion(String cedula,int codigoAnimal){
+      ;
+
         
         
         
