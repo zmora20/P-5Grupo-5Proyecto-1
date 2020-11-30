@@ -14,8 +14,12 @@ import java.util.ArrayList;
  */
 public class Adopcion {
     private LocalDate fecha;
-    private String codigo;
-    public ArrayList<Animal>animalesAdoptados;
+    
+    public Animal animal;
+    public ArrayList<Adopcion>animalesAdoptados;
+    
+    
+    
     
 }
 

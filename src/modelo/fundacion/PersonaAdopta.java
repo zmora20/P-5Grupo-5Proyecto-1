@@ -12,10 +12,22 @@ import java.util.ArrayList;
  */
 public class PersonaAdopta {
     private String nombrePersona;
-    private int identacion;
+    private String identificacion;
     private String direccion;
     private int telefono;
     private String correoElectro;
     public String preferencia;
     public ArrayList<PersonaAdopta> personas;
+    
+    public void SetNombrePersona(String nombrePersona){
+        this.nombrePersona=nombrePersona;
+    }
+    
+    public String GetIdentificacion(){
+        return identificacion;
+    }
+    
+    public void SetIdentificacion(String identificacion){
+        this.identificacion = identificacion;
+    }
 }

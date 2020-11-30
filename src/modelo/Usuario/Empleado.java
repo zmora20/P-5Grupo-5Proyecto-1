@@ -17,6 +17,8 @@ import java.time.format.DateTimeFormatter;
  */
 public class Empleado extends Usuario {
     public ArrayList<Animal> animales ;
+    public modelo.fundacion.PersonaAdopta pers;
+    public modelo.fundacion.Adopcion ad;
     
         
     
@@ -50,17 +52,36 @@ public class Empleado extends Usuario {
         }
         return false;
         
-    
+    }
     public boolean registrarPersona(PersonaAdopta per){
         
-        if (per.personas.contains(per)){
-            per.personas.add(per);
+        if (pers.personas.contains(per)){
+            pers.personas.add(per);
+            return true;
         }
         return false;
     }
     
-    public void registrarAdopcion(String cedula,int codigoAnimal){
-      ;
+    public void registrarAdopcion(String cedula,String codigoAnimal){
+        boolean condicion1 = true;
+        boolean condicion2 = false;
+        for (Adopcion ado: ad.animalesAdoptados){
+            if (ado.Animal.().equals(codigoAnimal)){
+                condicion1 = false;
+            }
+        }
+      
+        for(PersonaAdopta pp: pers.personas){
+            if (pp.GetIdentificacion().equals(cedula)){
+                condicion2 = true;
+              
+              
+          }
+            
+      }
+        if (condicion1 && condicion2){
+            Adopcion adop = 
+        }
 
         
         
