@@ -10,7 +10,7 @@ import java.time.LocalDate;
  *
  * @author leonvargas
  */
-public abstract class  Animal {
+public  class  Animal {
     private LocalDate fechaIngreso;
     public String nombre;
     public String raza;
@@ -21,8 +21,28 @@ public abstract class  Animal {
     public String observaciones;
     
     
-    public abstract  double calcularGasto();
+    public double calcularGasto(){
+        double gasto=0;
+        return gasto;
+    }
     
+    public LocalDate GetFechaIngreso(){
+        return fechaIngreso;
+    }
+    
+    public Animal(LocalDate fecha, String nombre,String raza,Sexo sexo,
+            int edad,int codigo,
+            double peso,String obser){
+        this.fechaIngreso=fecha;
+        this.nombre=nombre;
+        this.raza=raza;
+        this.sexo=sexo;
+        this.edad=edad;
+        this.codigo=codigo;
+        this.peso=peso;
+        this.observaciones=obser;
+        
+    } 
     
     
 }

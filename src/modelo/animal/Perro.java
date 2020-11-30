@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package modelo.animal;
+import java.time.LocalDate;
 
 /**
  *
@@ -36,5 +37,9 @@ public class Perro extends Animal {
         return -1;
         
     }
-    
+    public Perro(LocalDate fecha, String nombre,String raza,Sexo sexo,
+            int edad,int codigo,double peso,String obser,Size size){
+        super(fecha,nombre,raza,sexo,edad,codigo,peso,obser);
+        
+    }
 }

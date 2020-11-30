@@ -5,6 +5,8 @@
  */
 package modelo.animal;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author leonvargas
@@ -24,6 +26,14 @@ public class Gato extends Animal{
         return gasto;
     }
     
+    public Gato(LocalDate fecha, String nombre,String raza,Sexo sexo,
+            int edad,int codigo,double peso,String obser){
+        super(fecha,nombre,raza,sexo,edad,codigo,peso,obser);        
+    }
+            
+   
+ 
+            
     
-    
+   
 }

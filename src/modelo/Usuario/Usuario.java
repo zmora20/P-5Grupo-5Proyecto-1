@@ -38,6 +38,9 @@ public class Usuario {
         return sueldo;
     }
     
+    public void SetNombre(String nombre){
+        this.nombre=nombre;
+    }
     
     
     
