@@ -26,6 +26,10 @@ public  class  Animal {
         return gasto;
     }
     
+    public int GetCodigo(){
+        return codigo;
+    }
+    
     public LocalDate GetFechaIngreso(){
         return fechaIngreso;
     }

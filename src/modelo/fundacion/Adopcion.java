@@ -14,12 +14,19 @@ import java.util.ArrayList;
  */
 public class Adopcion {
     private LocalDate fecha;
-    
+    private int codigoAdopcion;                     
     public Animal animal;
     public ArrayList<Adopcion>animalesAdoptados;
     
+    public int GetCodigoAdopcion(){
+        return codigoAdopcion;
+    }
     
-    
+    public Adopcion(LocalDate fech,Animal anim, int codigoAdopcion){
+        this.fecha=fech;
+        this.animal=anim;
+        this.codigoAdopcion=codigoAdopcion;
+    }
     
 }
 

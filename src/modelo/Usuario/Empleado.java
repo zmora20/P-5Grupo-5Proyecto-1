@@ -62,28 +62,30 @@ public class Empleado extends Usuario {
         return false;
     }
     
-    public void registrarAdopcion(String cedula,String codigoAnimal){
+    public void registrarAdopcion(String cedula,int codigoAnimal){
+        int codigo=0;
         boolean condicion1 = true;
         boolean condicion2 = false;
         for (Adopcion ado: ad.animalesAdoptados){
-            if (ado.Animal.().equals(codigoAnimal)){
-                condicion1 = false;
+            if (ado.animal.GetCodigo()==codigoAnimal){
+                condicion1=false;
+                System.out.println("El animal ha sido adoptado");              
             }
         }
-      
-        for(PersonaAdopta pp: pers.personas){
-            if (pp.GetIdentificacion().equals(cedula)){
-                condicion2 = true;
-              
-              
-          }
-            
-      }
-        if (condicion1 && condicion2){
-            Adopcion adop = 
+        for (PersonaAdopta pp: pers.personas){
+         if (pp.GetIdentificacion()==cedula){    
+             condicion2=true;}
         }
-
-        
+      if (condicion1 && condicion2){
+          codigo++;
+          LocalDate fechaAdopcio=LocalDate.now();
+          for (Animal c:animales){
+              if(c.GetCodigo()==codigoAnimal){
+                  Adopcion nuevaAdopcion=new Adopcion(fechaAdopcio,c,codigo);
+                  ad.animalesAdoptados.add(nuevaAdopcion);
+              }
+          }
+      }
         
         
     }
