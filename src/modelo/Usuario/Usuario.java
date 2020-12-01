@@ -19,7 +19,7 @@ public class Usuario {
     public LocalDate fechaInicio;
     private double sueldo;
     public String usuario;
-    protected String contraseña;
+    private String contraseña;
     
     
     public String GetCorreoElectronico(){
@@ -40,6 +40,9 @@ public class Usuario {
     
     public void SetNombre(String nombre){
         this.nombre=nombre;
+    }
+    public String Getcontraseña(){
+        return contraseña;
     }
     
     
