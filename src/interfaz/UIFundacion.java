@@ -10,16 +10,10 @@ public class UIFundacion {
     public modelo.fundacion.ConsultasRegistrosAdmin listas;
 
     public Usuario Validacion(String usuario, String contrasenia){
-
-
         for (Usuario Objusuario :listas.empleados){
             if (Objusuario.usuario==usuario && Objusuario.Getcontraseña()==contrasenia){
-                System.out.println("credenciales validas");
-                return Objusuario;
-                   
-                   
-            }else {
-                System.out.println("las credenciales son invalidas");
+                
+                return Objusuario;                                   
             }
         }
     return null;  
