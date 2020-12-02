@@ -9,7 +9,7 @@ import java.util.Scanner;
  *
  * @author Fabricio
  */
-//zaida le toca esto psdata todo es culpa de Zhala
+
 /*public class main {
     //*public void menuPrincipal(){
                 System.out.println("Bienvenido");

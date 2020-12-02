@@ -8,15 +8,26 @@ import java.time.LocalDate;
 import modelo.animal.*;
 import java.util.ArrayList;
 
+
+
 /**
  *
  * @author zaida
  */
-public class Adopcion {
+public class Adopcion implements Comparable<Adopcion> {
     private LocalDate fecha;
     private int codigoAdopcion;                     
     public Animal animal;
     public ArrayList<Adopcion>animalesAdoptados;
+    public PersonaAdopta persona;
+    
+    public LocalDate GetFecha(){
+        return fecha;
+    }
+    
+    public void SetFecha(LocalDate fecha){
+        this.fecha = fecha;
+    }
     
     public int GetCodigoAdopcion(){
         return codigoAdopcion;
@@ -26,6 +37,12 @@ public class Adopcion {
         this.fecha=fech;
         this.animal=anim;
         this.codigoAdopcion=codigoAdopcion;
+    }
+
+    @Override
+    public int compareTo(Adopcion o) {
+        return fecha.compareTo(o.GetFecha());
+        
     }
     
 }
