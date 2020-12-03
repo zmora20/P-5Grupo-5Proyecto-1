@@ -27,9 +27,9 @@ public class Empleado extends Usuario {
     
     LocalDate fecha=LocalDate.now();
     
-    Animal pe = new Perro(fecha,"toby","poodle",Sexo.MACHO,12,4531,1.45,
+    Animal pe = new Perro(fecha,"toby","poodle",Sexo.MACHO,12,1.45,
                 "hhlo",Size.PEQUENIO);
-    Animal g = new Gato(fecha,"toby","poodle",Sexo.MACHO,12,4531,1.45,
+    Animal g = new Gato(fecha,"toby","poodle",Sexo.MACHO,12,1.45,
                 "hhlo");
     
     public void consultarAnimal(){
@@ -137,6 +137,7 @@ public class Empleado extends Usuario {
     public boolean registrarAnimal(Animal ani){
         if (!animales.contains(ani)){
             animales.add(ani);
+            ani.aumentarCodigo();
             return true;
         }else {
             System.out.println("el animal ya esta registrado");
@@ -154,7 +155,6 @@ public class Empleado extends Usuario {
     }
     
     public void registrarAdopcion(String cedula,int codigoAnimal){
-        int codigo=0;
         boolean condicion1 = true;
         boolean condicion2 = false;
         for (Adopcion ado: ad.animalesAdoptados){
@@ -168,13 +168,14 @@ public class Empleado extends Usuario {
              condicion2=true;}
         }
       if (condicion1 && condicion2){
-          codigo++;
           LocalDate fechaAdopcio=LocalDate.now();
           for (Animal c:animales){
               if(c.GetCodigo()==codigoAnimal){
-                  Adopcion nuevaAdopcion=new Adopcion(fechaAdopcio,c,codigo);
+                  Adopcion nuevaAdopcion=new Adopcion(fechaAdopcio,c);
                   ad.animalesAdoptados.add(nuevaAdopcion);
                   animales.remove(c);
+                  nuevaAdopcion.AumentarCodigoAdopcion();
+                  
               }
           }
       }

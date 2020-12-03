@@ -38,8 +38,9 @@ public class Perro extends Animal {
         
     }
     public Perro(LocalDate fecha, String nombre,String raza,Sexo sexo,
-            int edad,int codigo,double peso,String obser,Size size){
-        super(fecha,nombre,raza,sexo,edad,codigo,peso,obser);
+            int edad,double peso,String obser,Size size){
+        super(fecha,nombre,raza,sexo,edad,peso,obser);
+        size=size;
         
     }
 }

@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 public class Adopcion implements Comparable<Adopcion> {
     private LocalDate fecha;
-    private int codigoAdopcion;                     
+    private static int codigoAdopcion;                     
     public Animal animal;
     public ArrayList<Adopcion>animalesAdoptados;
     public PersonaAdopta persona;
@@ -32,11 +32,13 @@ public class Adopcion implements Comparable<Adopcion> {
     public int GetCodigoAdopcion(){
         return codigoAdopcion;
     }
+    public void AumentarCodigoAdopcion(){
+        codigoAdopcion++;
+    }
     
-    public Adopcion(LocalDate fech,Animal anim, int codigoAdopcion){
+    public Adopcion(LocalDate fech,Animal anim){
         this.fecha=fech;
         this.animal=anim;
-        this.codigoAdopcion=codigoAdopcion;
     }
 
     @Override

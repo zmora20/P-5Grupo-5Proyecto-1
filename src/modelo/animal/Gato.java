@@ -27,8 +27,8 @@ public class Gato extends Animal{
     }
     
     public Gato(LocalDate fecha, String nombre,String raza,Sexo sexo,
-            int edad,int codigo,double peso,String obser){
-        super(fecha,nombre,raza,sexo,edad,codigo,peso,obser);        
+            int edad,double peso,String obser){
+        super(fecha,nombre,raza,sexo,edad,peso,obser);        
     }
             
    

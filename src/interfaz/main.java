@@ -143,16 +143,19 @@ public class main {
         System.out.println("raza");
         String raza=sc.nextLine();
         System.out.println("sexo del animal (macho/hembra) ");
+        //no se como llamar a un enum
         System.out.println("edad");
         int edad=sc.nextInt();
         sc.nextLine();
         System.out.println("peso");
-        double pezo=sc.nextDouble();
+        double peso=sc.nextDouble();
         sc.nextLine();
         System.out.println("escriba observaciones");
         String observaciones=sc.nextLine();
         LocalDate fecha=LocalDate.now();
         if (tipo=="PERRO"){
+            Animal obj= new Animal(fecha,nombre,raza,)
+            
             
         }
         

@@ -16,7 +16,7 @@ public  class  Animal {
     public String raza;
     public Sexo sexo;
     public int edad;
-    private int codigo;
+    private static int codigo;
     public double peso;
     public String observaciones;
     
@@ -34,15 +34,20 @@ public  class  Animal {
         return fechaIngreso;
     }
     
+
+    
+    public void aumentarCodigo(){
+        codigo++;
+    }
+    
     public Animal(LocalDate fecha, String nombre,String raza,Sexo sexo,
-            int edad,int codigo,
+            int edad,
             double peso,String obser){
         this.fechaIngreso=fecha;
         this.nombre=nombre;
         this.raza=raza;
         this.sexo=sexo;
         this.edad=edad;
-        this.codigo=codigo;
         this.peso=peso;
         this.observaciones=obser;
         
