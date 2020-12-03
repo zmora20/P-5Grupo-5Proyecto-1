@@ -13,10 +13,13 @@ import modelo.fundacion.*;
 
 public class main {
     UIFundacion pt;
+    modelo.Usuario.Empleado xe;
+    modelo.fundacion.PersonaAdopta pe;
     Scanner sc;
     
     public main(){
     sc =new Scanner(System.in);
+    xe= new Empleado();
     
     pt =new UIFundacion(); 
     }
@@ -144,6 +147,8 @@ public class main {
         String raza=sc.nextLine();
         System.out.println("sexo del animal (macho/hembra) ");
         //no se como llamar a un enum
+        Sexo sexo=Sexo.valueOf(sc.nextLine().toUpperCase());
+        
         System.out.println("edad");
         int edad=sc.nextInt();
         sc.nextLine();
@@ -154,13 +159,55 @@ public class main {
         String observaciones=sc.nextLine();
         LocalDate fecha=LocalDate.now();
         if (tipo=="PERRO"){
-            Animal obj= new Animal(fecha,nombre,raza,)
-            
-            
+            System.out.println("el tamanio del perro");
+            Size tamanio=Size.valueOf(sc.nextLine().toUpperCase());            
+            Animal obj= new Perro(fecha,nombre,raza,sexo,edad,peso,observaciones,tamanio);
+            xe.registrarAnimal(obj);
+        }else{
+            Animal obj= new Animal(fecha,nombre,raza,sexo,edad,peso,observaciones);
+            xe.registrarAnimal(obj);
         }
         
-           }
     }
+    private void opcion2(){
+        xe.consultarAnimal();
+    }
+    private void opcion3(){
+        System.out.println("Ingrese nombre");
+        String nombre=sc.nextLine();
+        
+        System.out.println("escriba su id ");
+        String id=sc.nextLine();
+        System.out.println("escriba su direccion");
+        String direccion=sc.nextLine();
+        System.out.println("telefono ");
+        //no se como llamar a un enum
+        String telefono=sc.nextLine();
+        
+        System.out.println("correo electronico");
+        String correoElectronico=sc.nextLine();
+        System.out.println("sus preferencias");
+        String Preferencias=sc.nextLine();
+        
+        PersonaAdopta per1=new PersonaAdopta(nombre,id,direccion,telefono,
+                correoElectronico,Preferencias);
+        xe.registrarPersona(per1);     
+    }
+    private void opcion4(){
+        System.out.println("ingrese el codigo del animal");
+        int codigo=sc.nextInt();
+        
+        System.out.println("escriba su id ");
+        String id=sc.nextLine();
+        xe.registrarAdopcion(id, codigo);
+        
+        
+    }
+    private void opcion5(){
+        //consultar adopciones
+    }
+    }
+
     
 
   

@@ -14,9 +14,9 @@ public class PersonaAdopta {
     private String nombrePersona;
     private String identificacion;
     private String direccion;
-    private int telefono;
+    private String telefono;
     private String correoElectro;
-    public String preferencia;
+    public String[] preferencia;
     public ArrayList<PersonaAdopta> personas;
     
     public void SetNombrePersona(String nombrePersona){
@@ -29,5 +29,15 @@ public class PersonaAdopta {
     
     public void SetIdentificacion(String identificacion){
         this.identificacion = identificacion;
+    }
+    public PersonaAdopta(String nombrePersona,String identificacion
+            ,String direccion,String telefono,String correoElectro,
+            String preferencia){
+        this.nombrePersona=nombrePersona;
+        this.identificacion=identificacion;
+        this.direccion=direccion;
+        this.telefono=telefono;
+        this.correoElectro=correoElectro;
+        preferencia=preferencia;
     }
 }

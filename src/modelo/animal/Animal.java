@@ -41,8 +41,7 @@ public  class  Animal {
     }
     
     public Animal(LocalDate fecha, String nombre,String raza,Sexo sexo,
-            int edad,
-            double peso,String obser){
+            int edad,double peso,String obser){
         this.fechaIngreso=fecha;
         this.nombre=nombre;
         this.raza=raza;
