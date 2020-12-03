@@ -7,7 +7,7 @@ package modelo.fundacion;
 
 import java.util.ArrayList;
 import modelo.Usuario.*;
-import modelo.Animal.*;
+import modelo.animal.*;
 import modelo.fundacion.*;
 
 /**
@@ -15,6 +15,7 @@ import modelo.fundacion.*;
  * @author Fabricio
  */
 public class ConsultasRegistrosAdmin {
+    public modelo.Usuario.Empleado emple;
     public ArrayList <Usuario> empleados;
     public ArrayList<Veterinaria> veterinarias;
     public ArrayList<GastosVeterinaria> gastosdeVeterinarias;
@@ -44,8 +45,8 @@ public class ConsultasRegistrosAdmin {
     }      
     
     public void consultarVeterinarias(){
-        for (Usuario u : empleados ){
-            System.out.println(u);
+        for (Veterinaria ve : veterinarias ){
+            System.out.println(ve);
         }
             
         
@@ -67,6 +68,7 @@ public class ConsultasRegistrosAdmin {
     public double calcularGastoMensual(){
         double gastoAdministrativo=0;
         double montoVeterinaria=0;
+        double montoAnimales=0;
         for (Usuario u : empleados){
             double sueldoempleado= u.GetSueldo();
             gastoAdministrativo=gastoAdministrativo+sueldoempleado;                 
@@ -75,9 +77,17 @@ public class ConsultasRegistrosAdmin {
             double dineroVeterinaria= vete.GetMonto();
             montoVeterinaria=montoVeterinaria+dineroVeterinaria;
         }
-        //*aqui va los gastos de los animales
-        
-        return gastoAdministrativo+montoVeterinaria;
+        for (Animal ani: emple.animales){
+            if (ani instanceof Gato){
+                double montoPorAnimal=ani.calcularGasto();
+                montoAnimales= montoAnimales+montoPorAnimal;
+            }else{
+                double montoPorAnimal=ani.calcularGasto();
+                montoAnimales= montoAnimales+montoPorAnimal;
+                
+            }
+        }
+        return gastoAdministrativo+montoVeterinaria+montoAnimales;
     }
     public void enviarCorreo(){
         

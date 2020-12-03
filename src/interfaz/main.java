@@ -88,8 +88,10 @@ public class main {
                     do{
             
                         System.out.println("1. Registrar Empleados");
-                        System.out.println("2. Consultar y Registrar Veterinarias");
-                        System.out.println("3. Consultar y registrar Gastos Veterinarios");
+                        System.out.println("2. Consultar y Regist"
+                                + "rar Veterinarias");
+                        System.out.println("3. Consultar y regi"
+                                + "strar Gastos Veterinarios");
                         System.out.println("4. Consultar Presupuesto Mensual");
                         System.out.println("5. Enviar correo a interesados");
                         System.out.println("6. Cerrar sesion");
@@ -137,13 +139,21 @@ public class main {
         String tipo=sc.nextLine().toUpperCase();
         
         System.out.println("escriba el nombre ");
+        String nombre=sc.nextLine();
         System.out.println("raza");
+        String raza=sc.nextLine();
         System.out.println("sexo del animal (macho/hembra) ");
         System.out.println("edad");
+        int edad=sc.nextInt();
+        sc.nextLine();
         System.out.println("peso");
+        double pezo=sc.nextDouble();
+        sc.nextLine();
         System.out.println("escriba observaciones");
+        String observaciones=sc.nextLine();
         LocalDate fecha=LocalDate.now();
         if (tipo=="PERRO"){
+            
         }
         
            }
