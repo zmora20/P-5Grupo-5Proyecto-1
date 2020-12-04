@@ -209,7 +209,7 @@ public class main {
         xe.consultaAdopcion();
     }
     private void opcion6(){
-        int u=0;
+        xe.consultaRegistro();
      
     }
     

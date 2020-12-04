@@ -16,8 +16,9 @@ public class PersonaAdopta {
     private String direccion;
     private String telefono;
     private String correoElectro;
-    public String[] preferencia;
+    public String preferencia;
     public ArrayList<PersonaAdopta> personas;
+    public int animalesAdoptados = 0;
     
     public void SetNombrePersona(String nombrePersona){
         this.nombrePersona=nombrePersona;
@@ -29,9 +30,39 @@ public class PersonaAdopta {
         return identificacion;
     }
     
-    public void SetIdentificacion(String identificacion){
-        this.identificacion = identificacion;
+    public String GetDireccion(){
+        return direccion;
     }
+    
+    public void SetDireccion(String direccion){
+        this.direccion = direccion;
+    }
+    
+    public String GetTelefono(){
+        return telefono;
+    }
+    
+    public void SetTelefono(String telefono){
+        this.telefono = telefono;
+    }
+    
+    public String GetCorreoElectro(){
+        return correoElectro;
+    }
+    
+    public void SetCorreoElectro(String correoElectro){
+        this.correoElectro = correoElectro;
+    }
+    
+    public String GetPreferencia(){
+        return preferencia;
+    }
+    
+    
+    public void SetPreferencia(String preferencia){
+        this.preferencia = preferencia;
+    }
+    
     public PersonaAdopta(String nombrePersona,String identificacion
             ,String direccion,String telefono,String correoElectro,
             String preferencia){

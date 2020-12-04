@@ -7,6 +7,8 @@ package modelo.Usuario;
 import modelo.fundacion.*;
 import modelo.animal.*;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Arrays;
 import java.util.Scanner;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -150,6 +152,93 @@ public class Empleado extends Usuario {
     }
     
     public void consultaRegistro(){
+        for (PersonaAdopta per: pers.personas){
+            System.out.println(per);
+        }
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Ingrese cedula: ");
+        String cedula = sc.nextLine();
+        for (PersonaAdopta per: pers.personas){
+            if(per.GetIdentificacion().equals(cedula) && 
+                    per.animalesAdoptados != 0 ){
+                for(Adopcion aad: ad.animalesAdoptados){
+                    if(aad.persona.GetIdentificacion().equals(cedula)){
+                        System.out.println(per);
+                        System.out.println("Los animales que adopto son:");
+                        System.out.println(aad.animal);
+                    }
+                    
+                        
+                }
+            }else{
+                System.out.println("No ha adoptado a ningun animal");
+                System.out.println(per);
+            }
+        }
+        System.out.println("¿Desea actualizar datos? (Si/No)");
+        String respuesta = sc.nextLine();
+        switch (respuesta){
+            case "Si":
+                System.out.println("Ingrese su nombre:");
+                String nom = sc.nextLine();
+                for (PersonaAdopta per: pers.personas){
+                    if (per.GetNombrePersona().equals(nom)){
+                        System.out.println("Ingrese nueva direccion:");
+                        String dir = sc.nextLine();
+                        if (per.GetDireccion().equals(dir)){
+                            System.out.println("La direccion es la misma");
+                        }else{
+                            per.SetDireccion(dir);
+                            System.out.println("Se ha actualizado la "
+                                    + "direccion");
+                            
+                        }
+                        
+                        System.out.println("Ingrese nuevo telefono:");
+                        String tel = sc.nextLine();
+                        if (per.GetTelefono().equals(tel)){
+                            System.out.println("El telefono es el mismo");
+                        }else{
+                            per.SetTelefono(tel);
+                            System.out.println("Se ha actualizado el telefono");
+                        
+                            
+                        }
+                        
+                        System.out.println("Ingrese nuevo correo electronico:");
+                        String corEl = sc.nextLine();
+                        if (per.GetCorreoElectro().equals(corEl)){
+                            System.out.println("El correo electronico es el "
+                                    + "mismo");
+                        }else{
+                            per.SetDireccion(corEl);
+                            System.out.println("Se ha actualizado el correo "
+                                    + "electronico");
+                        }
+                        
+                        
+                        System.out.println("Ingrese nueva preferencia:");
+                        String pref = sc.nextLine();
+                        if (per.GetPreferencia().equals(pref)){
+                            System.out.println("La preferencia es la misma");
+                        }else{
+                            per.SetPreferencia(pref);
+                            System.out.println("Se ha actualizado la "
+                                    + "preferencia ");
+                        }
+                        
+                        
+                        
+                    }
+                }
+                
+                
+                break;
+            case "No":
+                System.out.println("Los datos no se han actualizado");
+                break;
+        }
+        
         
     
     }
@@ -184,8 +273,11 @@ public class Empleado extends Usuario {
             }
         }
         for (PersonaAdopta pp: pers.personas){
-         if (pp.GetIdentificacion()==cedula){    
-             condicion2=true;}
+         if (pp.GetIdentificacion()==cedula){
+             
+             condicion2=true;
+             pp.animalesAdoptados++; 
+         }
         }
       if (condicion1 && condicion2){
           LocalDate fechaAdopcio=LocalDate.now();
