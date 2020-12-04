@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package proyecto.pkg1parcial;
-
+import modelo.fundacion.*;
 /**
  *
  * @author zaida
@@ -16,6 +16,8 @@ public class Proyecto1Parcial {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        
     }
     
 }

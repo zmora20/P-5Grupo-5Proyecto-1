@@ -12,19 +12,16 @@ import modelo.fundacion.*;
 
 
 public class main {
-    UIFundacion pt;
-    modelo.Usuario.Empleado xe;
-    modelo.fundacion.PersonaAdopta pe;
-    modelo.fundacion.ConsultasRegistrosAdmin cr;
-    Scanner sc;
     
-    public main(){
-    sc =new Scanner(System.in);
-    //xe= new Empleado();
+    static UIFundacion pt;
+    static modelo.Usuario.Empleado xe;
+    static modelo.fundacion.PersonaAdopta pe;
+    static modelo.fundacion.ConsultasRegistrosAdmin cr;
+    static Scanner sc = new Scanner(System.in);
     
-    pt =new UIFundacion(); 
-    }
-    public void menuPrincipal(){
+    
+    
+    public static void menuPrincipal(){
         
                
     
@@ -139,7 +136,7 @@ public class main {
        
         
     }
-    private void opcion1(){
+    private static void opcion1(){
         System.out.println("Ingrese animal a registrar:Perro/Gato");
         String tipo=sc.nextLine().toUpperCase();
         
@@ -171,10 +168,10 @@ public class main {
         }
         
     }
-    private void opcion2(){
+    private static void opcion2(){
         xe.consultarAnimal();
     }
-    private void opcion3(){
+    private static void opcion3(){
         System.out.println("Ingrese nombre");
         String nombre=sc.nextLine();
         
@@ -195,7 +192,7 @@ public class main {
                 correoElectronico,Preferencias);
         xe.registrarPersona(per1);     
     }
-    private void opcion4(){
+    private static void opcion4(){
         System.out.println("Ingrese el codigo del animal");
         int codigo=sc.nextInt();
         
@@ -205,10 +202,10 @@ public class main {
         
         
     }
-    private void opcion5(){
+    private static void opcion5(){
         xe.consultaAdopcion();
     }
-    private void opcion6(){
+    private static void opcion6(){
         for (PersonaAdopta per :pe.personas){
             System.out.println(per);
             
@@ -220,7 +217,7 @@ public class main {
      
     }
     
-    private void opcion8(){
+    private static void opcion8(){
         System.out.println("Ingrese nombre completo: ");
         String nombre=sc.nextLine();
         System.out.println("Ingrese direccion: ");
@@ -250,7 +247,7 @@ public class main {
             cr.agregarEmpleado(e2);
         }
     }
-    private void opcion9(){
+    private static void opcion9(){
         
         System.out.println("Ingrese nombre veterinaria:");
          String nombreV= sc.nextLine();
@@ -262,7 +259,7 @@ public class main {
          cr.registrarVeterinaria(vet1);
          cr.consultarVeterinarias();
     }
-    private void opcion10(){
+    private static void opcion10(){
         LocalDate fecha=LocalDate.now();
         System.out.println("Ingrese monto gastado:");
         double mon=Double.parseDouble(sc.nextLine());
@@ -281,17 +278,20 @@ public class main {
        
         
     }
-    private void opcion11(){
+    private static void opcion11(){
         System.out.println("el saldo mensual de la fundacion es :");
         double mensual=cr.calcularGastoMensual();
         System.out.println(mensual);
         
     }
-    private void opcion12(){
+    private static void opcion12(){
     //aqui se envian los correos 
     }
     
-    
+    public static void main(String[] args){
+        menuPrincipal();
+        
+    }
     
     
     

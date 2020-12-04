@@ -21,7 +21,10 @@ public class Administrador extends Usuario {
                 contraseña);
      this.numeroCuenta=cuenta;
      
- }  
+ }
+ //public String toString(){
+     //return 
+ //}
  
         
 
