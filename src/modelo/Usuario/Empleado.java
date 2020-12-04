@@ -151,13 +151,7 @@ public class Empleado extends Usuario {
         
     }
     
-    public void consultaRegistro(){
-        for (PersonaAdopta per: pers.personas){
-            System.out.println(per);
-        }
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Ingrese cedula: ");
-        String cedula = sc.nextLine();
+    public void consultaRegistro(String cedula){
         for (PersonaAdopta per: pers.personas){
             if(per.GetIdentificacion().equals(cedula) && 
                     per.animalesAdoptados != 0 ){

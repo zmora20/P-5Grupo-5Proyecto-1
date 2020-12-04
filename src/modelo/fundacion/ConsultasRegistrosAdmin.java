@@ -4,8 +4,15 @@
  * and open the template in the editor.
  */
 package modelo.fundacion;
+import java.util.Properties;
 
 import java.util.ArrayList;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import modelo.Usuario.*;
 import modelo.animal.*;
 import modelo.fundacion.*;
@@ -89,7 +96,34 @@ public class ConsultasRegistrosAdmin {
         }
         return gastoAdministrativo+montoVeterinaria+montoAnimales;
     }
-    public void enviarCorreo(){
+    public void enviarCorreo(PersonaAdopta per ){
+        Properties properties = new Properties();
+        properties.put("mail.smtp.host", "mail.gmail.com");
+	properties.put("mail.smtp.starttls.enable", "true");
+	properties.put("mail.smtp.port",25);
+	properties.put("mail.smtp.mail.sender","emisor@gmail.com");
+	properties.put("mail.smtp.user", "usuario");
+	properties.put("mail.smtp.auth", "true");
+        Session session = Session.getDefaultInstance(properties);
+        
+        try{
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress((String)properties.get
+                ("mail.smtp.mail.sender")));
+            message.addRecipient(Message.RecipientType.TO, 
+                    new InternetAddress("receptor@gmail.com"));
+            message.setSubject("Prueba");
+            message.setText("Texto");
+            Transport t = session.getTransport("smtp");
+            t.connect((String)properties.get("mail.smtp.user"), "password");
+            t.sendMessage(message, message.getAllRecipients());
+            t.close();
+        }catch (MessagingException me){
+            //Aqui se deberia o mostrar un mensaje de error o en lugar
+            //de no hacer nada con la excepcion, lanzarla para que el modulo
+            //superior la capture y avise al usuario con un popup, por ejemplo.
+            return;
+	}
         
     }
        

@@ -209,7 +209,14 @@ public class main {
         xe.consultaAdopcion();
     }
     private void opcion6(){
-        xe.consultaRegistro();
+        for (PersonaAdopta per :pe.personas){
+            System.out.println(per);
+            
+        }
+        System.out.println("Ingrese numero de cedula");
+        String ced=sc.nextLine();
+        
+        xe.consultaRegistro(ced);
      
     }
     
