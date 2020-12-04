@@ -7,7 +7,7 @@ package modelo.fundacion;
 import java.time.LocalDate;
 import modelo.animal.*;
 import java.util.ArrayList;
-
+import modelo.fundacion.*;
 
 
 /**
@@ -46,6 +46,12 @@ public class Adopcion implements Comparable<Adopcion> {
         return fecha.compareTo(o.GetFecha());
         
     }
-    
+    public String toString(){
+        return "Codigo Adopcion: "+codigoAdopcion+" "+"Fecha: "+fecha+" "+
+                "Codigo Animal: "+animal.GetCodigo()+"Nombre animal:"+
+                animal.nombre+" "+"Cedula adoptante: "+
+                persona.GetIdentificacion()+" "+"Nombre adoptante:"+
+                persona.GetNombrePersona();
+    }
 }
 

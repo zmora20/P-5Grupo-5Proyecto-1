@@ -15,7 +15,15 @@ public class Veterinaria {
     public int telefono;
     public String correoElectronico;
     
-   
+    public Veterinaria(String nombre , int telefono , String correo){
+        nombre= nombre;
+        telefono=telefono;
+        correo=correoElectronico;
+    }
+    
+    
+    
+    
     
     
 }

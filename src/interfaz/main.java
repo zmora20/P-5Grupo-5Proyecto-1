@@ -15,11 +15,12 @@ public class main {
     UIFundacion pt;
     modelo.Usuario.Empleado xe;
     modelo.fundacion.PersonaAdopta pe;
+    modelo.fundacion.ConsultasRegistrosAdmin cr;
     Scanner sc;
     
     public main(){
     sc =new Scanner(System.in);
-    xe= new Empleado();
+    //xe= new Empleado();
     
     pt =new UIFundacion(); 
     }
@@ -77,8 +78,8 @@ public class main {
                                 opcion6();
                             break;
                             case "7":
-                                opcion7();
-                            break;
+                                break;
+                            
                             default:
                                 System.out.println("Opcion invalida");
                             break;
@@ -114,13 +115,14 @@ public class main {
                                 opcion10();
                             break;
                             case "4":
-                                System.out.println("Adios");
+                                opcion11();
                                 break;
                             case "5":
-                                opcion11();
+                                opcion12();
                             break;
                             case "6":
-                                opcion12();
+                                System.out.println("se cerro la sesion");
+                                break;
                             
                             default:
                                 System.out.println("Opcion invalida");
@@ -194,18 +196,98 @@ public class main {
         xe.registrarPersona(per1);     
     }
     private void opcion4(){
-        System.out.println("ingrese el codigo del animal");
+        System.out.println("Ingrese el codigo del animal");
         int codigo=sc.nextInt();
         
-        System.out.println("escriba su id ");
+        System.out.println("Escriba su id ");
         String id=sc.nextLine();
         xe.registrarAdopcion(id, codigo);
         
         
     }
     private void opcion5(){
-        //consultar adopciones
+        xe.consultaAdopcion();
     }
+    private void opcion6(){
+        int u=0;
+     
+    }
+    
+    private void opcion8(){
+        System.out.println("Ingrese nombre completo: ");
+        String nombre=sc.nextLine();
+        System.out.println("Ingrese direccion: ");
+        String direccion=sc.nextLine();
+        System.out.println("Ingrese numero telefono: ");
+        int telefono =Integer.parseInt(sc.nextLine());
+        System.out.println("Ingrese correo electronico:  ");
+        String correo=sc.nextLine();     
+        LocalDate fechainicio=LocalDate.now();
+        System.out.println("Ingrese sueldo ganado:");    
+        double sueldo=Double.parseDouble(sc.nextLine());
+        System.out.println("Ingrese Usuario:");
+        String usuario=sc.nextLine();
+        System.out.println("Ingrese Contraseña:");
+        String contraseña=sc.nextLine();
+        System.out.println("Es Empleado: SI/NO");
+        String cnd=sc.nextLine().toUpperCase();
+        if (cnd=="SI"){
+           Usuario e1=new Empleado(nombre,direccion,telefono,correo,fechainicio,
+           sueldo,usuario,contraseña);
+           cr.agregarEmpleado(e1);
+        }else{
+            System.out.println("ingrese numero de cuenta ");
+            int nC=Integer.parseInt(sc.nextLine());
+            Usuario e2=new Administrador(nombre,direccion,telefono,correo,
+               fechainicio,sueldo,usuario,contraseña,nC);
+            cr.agregarEmpleado(e2);
+        }
+    }
+    private void opcion9(){
+        
+        System.out.println("Ingrese nombre veterinaria:");
+         String nombreV= sc.nextLine();
+         System.out.println("Ingrese telefono");
+         int telefono = Integer.parseInt(sc.nextLine());
+         System.out.println("Ingrese correo vetearinaria");
+         String correo=sc.nextLine();
+         Veterinaria vet1= new Veterinaria(nombreV,telefono,correo);
+         cr.registrarVeterinaria(vet1);
+         cr.consultarVeterinarias();
+    }
+    private void opcion10(){
+        LocalDate fecha=LocalDate.now();
+        System.out.println("Ingrese monto gastado:");
+        double mon=Double.parseDouble(sc.nextLine());
+        System.out.println("Ingrese codigo animal tratado:");
+        int cod=Integer.parseInt(sc.nextLine());
+        for(Animal animBuscado: xe.animales){
+            if(animBuscado.GetCodigo()==cod){
+                GastosVeterinaria gvt1=new 
+                GastosVeterinaria(fecha,mon,animBuscado);
+                cr.reagistrarGastoVeterinaria(gvt1);
+                cr.consultarGastoVeterinarias();
+                
+            }
+        }
+            
+       
+        
+    }
+    private void opcion11(){
+        System.out.println("el saldo mensual de la fundacion es :");
+        double mensual=cr.calcularGastoMensual();
+        System.out.println(mensual);
+        
+    }
+    private void opcion12(){
+    //aqui se envian los correos 
+    }
+    
+    
+    
+    
+    
     }
 
     

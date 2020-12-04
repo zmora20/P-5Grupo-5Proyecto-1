@@ -44,7 +44,17 @@ public class Usuario {
     public String Getcontraseña(){
         return contraseña;
     }
-    
+    public Usuario(String nombre,String direccion,int telefono, String correo,
+         LocalDate fechainicio,double sueldo,String usuario,String contraseña){
+        this.nombre=nombre;
+        this.direccion=direccion;
+        this.telefono=telefono;
+        this.correoElectronico=correo;
+        this.fechaInicio=fechainicio;
+        this.sueldo=sueldo;
+        this.usuario=usuario;
+        this.contraseña=contraseña;
+    }
     
     
 }

@@ -22,7 +22,8 @@ public class Empleado extends Usuario {
     public ArrayList<Animal> animales ;
     public modelo.fundacion.PersonaAdopta pers;
     public modelo.fundacion.Adopcion ad;
-    
+    Scanner sc = new Scanner(System.in);
+
         
     
     LocalDate fecha=LocalDate.now();
@@ -32,8 +33,13 @@ public class Empleado extends Usuario {
     Animal g = new Gato(fecha,"toby","poodle",Sexo.MACHO,12,1.45,
                 "hhlo");
     
+    public Empleado(String nombre,String direccion,int telefono, String correo,
+          LocalDate fechainicio,double sueldo,String usuario,String contraseña){
+        super(nombre,direccion,telefono,correo,fechainicio,sueldo,usuario,
+                contraseña);
+    }
+    
     public void consultarAnimal(){
-        Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese tipo de animal (Gato/Perro):");
         String tipoAnimal = sc.nextLine();
         System.out.println("Ingrese sexo del animal (Macho/Hembra):");
@@ -123,7 +129,21 @@ public class Empleado extends Usuario {
         
         for (Adopcion adop: ad.animalesAdoptados){
             System.out.println(adop);
+        
         }
+        System.out.println("Desea consultar una Adopcion"
+                + " en especifico por codigo");
+        int opcionA=0;
+        opcionA = sc.nextInt();
+        sc.nextLine();
+        if (opcionA!=0){
+            for (Adopcion adop1: ad.animalesAdoptados){
+                if (adop1.GetCodigoAdopcion()==opcionA){
+                    System.out.println(adop1);
+                }        
+            }
+        }
+        
             
         
         

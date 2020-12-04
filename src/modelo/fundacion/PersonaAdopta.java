@@ -22,7 +22,9 @@ public class PersonaAdopta {
     public void SetNombrePersona(String nombrePersona){
         this.nombrePersona=nombrePersona;
     }
-    
+     public String GetNombrePersona(){
+        return nombrePersona;
+    }
     public String GetIdentificacion(){
         return identificacion;
     }

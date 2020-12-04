@@ -19,7 +19,12 @@ public class GastosVeterinaria {
         return monto;
     }
     
-    
+    public GastosVeterinaria(LocalDate fecha,double monto,Animal animal){
+        fechaAtencion=fecha;
+        monto=monto;
+        animal=animal;
+        
+    }
     
     
 }
