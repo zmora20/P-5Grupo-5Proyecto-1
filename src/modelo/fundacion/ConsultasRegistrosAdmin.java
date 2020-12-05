@@ -68,14 +68,14 @@ public class ConsultasRegistrosAdmin {
     
     
     public boolean agregarEmpleado(Usuario usu){
-        for (int i= 0;i<empleados.size();i++){
-            String s=usu.usuario;
-            Usuario sus=empleados.get(i);           
-            if (s==sus.usuario){
-                empleados.add(usu);
-                return true;
-            }else{
+        for (Usuario comUsu: empleados){
+            String s=usu.usuario;         
+            if (s==comUsu.usuario){
                 System.out.println("el usuario ya existe pruebe con otro ");
+                
+            }else{
+               empleados.add(usu);
+                return true; 
             }
              
         }

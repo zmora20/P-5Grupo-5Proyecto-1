@@ -39,86 +39,157 @@ public class Empleado extends Usuario {
     
     public void consultarAnimal(){
         System.out.println("Ingrese tipo de animal (Gato/Perro):");
-        String tipoAnimal = sc.nextLine();
+        String tipoAnimal = sc.nextLine().toUpperCase();
         System.out.println("Ingrese sexo del animal (Macho/Hembra):");
         String sexoAnimal = sc.nextLine().toUpperCase();
-        System.out.println("Ingrese edad del animal:");
-        int edadAnimal = sc.nextInt();
-        
-        switch (tipoAnimal) {
-            case "Gato":
-                for (Animal ani: animales){
-                    if (ani instanceof Gato){
-                        System.out.println(ani);
-                    }
-                }
-            case "Perro":
+        System.out.println("Ingrese edad del animal(0 si no quiere filtrar):");
+        int edadAnimal ;
+        edadAnimal= Integer.parseInt(sc.nextLine());
+        //CONDICIONAL O FUNCION COMPARAR POR SEXO SOBRECARGA
+        if (tipoAnimal!=""){
+            if(tipoAnimal=="GATO" ){
                 for (Animal ani: animales){
                     if (ani instanceof Perro){
                         System.out.println(ani);
                     }
                 }    
-            default:
+            }else{
                 for (Animal ani: animales){
-                    System.out.println(ani);
-                
+                    if (ani instanceof Gato){
+                        System.out.println(ani);
+                    }          
+                }
+            }
+            
+        }else if (sexoAnimal!=""){
+            if(tipoAnimal=="MACHO" ){
+                for (Animal ani: animales){
+                    if (ani.sexo.MACHO.name()=="MACHO"){
+                        System.out.println(ani);
+                    }
+                }    
+            }else{
+                for (Animal ani: animales){
+                    if (ani.sexo.HEMBRA.name()=="HEMBRA"){
+                        System.out.println(ani);
+                    }          
+                }
+            }
+            
+        }else if (edadAnimal!=0){
+            if(edadAnimal>=0 && edadAnimal<5){
+                for (Animal ani: animales){
+                    if (ani.edad>=0 && ani.edad<5){
+                        System.out.println(ani);
+                    }
+                }
+            }else if (edadAnimal>=5 && edadAnimal<10){
+                for (Animal ani: animales){
+                    if (ani.edad>=5 && ani.edad<10){
+                        System.out.println(ani);
+                    }
                 }
                 
-                
-        }
+            }else{
+                for (Animal ani: animales){
+                    if (ani.edad>=10 && ani.edad<15){
+                        System.out.println(ani);
+                    }
+                }
+            }
+            
+        }else if (sexoAnimal!=""&& edadAnimal!=0){
+            consultarAnimal(tipoAnimal, edadAnimal);
+            
+            
+        }else if(tipoAnimal!="" && sexoAnimal!=""){
+            consultarAnimal(tipoAnimal,sexoAnimal);
+            
+        }else{
+    }
+           
         
-        switch (sexoAnimal){
-            case "MACHO":
-                for (Animal ann: animales){
-                    if (ann.sexo.MACHO.name().equals("MACHO")){
-                        System.out.println(ann);
+    }
+    
+    public void consultarAnimal(String tipoAnima,String sexo){
+        if(tipoAnima=="GATO" ){
+                for (Animal ani: animales ){
+                    if (ani instanceof Gato && ani.sexo.MACHO.name()==sexo){
+                        System.out.println(ani);
+                    }
+                }    
+        }else if(tipoAnima=="GATO" && sexo=="Hembra"){
+            for (Animal ani: animales){
+                if (ani instanceof Perro && ani.sexo.name()==sexo){
+                    System.out.println(ani);
+                    }
+                        
+                }
+        }else if(tipoAnima=="PERRO" && sexo=="MACHO"){
+            for (Animal ani: animales ){
+                    if (ani instanceof Perro && ani.sexo.MACHO.name()==sexo){
+                        System.out.println(ani);
                     }
                 }
-                break;
-            case "HEMBRA":
-                for (Animal ann: animales){
-                    if (ann.sexo.HEMBRA.name().equals("HEMBRA")){
-                        System.out.println(ann);
+        
+        }else{
+            for (Animal ani: animales ){
+                    if (ani instanceof Perro && ani.sexo.MACHO.name()==sexo){
+                        System.out.println(ani);
                     }
-                }  
-                break;
-            default:
-                for (Animal ann: animales){
-                    System.out.println(ann);
-                
                 }
             
         }
-        
-        switch (edadAnimal){
-            case 1: case 2: case 3: case 4: case 5:
-                for (Animal ann: animales){
-                    if (ann.edad<=5) {
-                        System.out.println(ann);
-                    }
-                }
-                
-            case 6: case 7: case 8: case 9: case 10:
-                for (Animal ann: animales){
-                    if (ann.edad >= 6 && ann.edad<=10) {
-                        System.out.println(ann);
-                    }
-                }
-                
-            case 11: case 12: case 13: case 14: case 15:
-                for (Animal ann: animales){
-                    if (ann.edad>= 10 && ann.edad<=15) {
-                        System.out.println(ann);
-                    }
-                }
-        }
-        
-    //for (Animal ann: animales){
-                    //if (ann.edad==edadAnimal) {
-                        //System.out.println(ann);
-                    //}
+           
         
     }
+    public void consultarAnimal(String tipoAnima,int edad){
+        if(tipoAnima=="GATO"){
+                for (Animal ani: animales ){
+                    if (ani instanceof Gato ){
+                        if(edad>=0 && edad<5){
+                            if (ani.edad>=0 && ani.edad<5){
+                            System.out.println(ani);
+                            }
+                        }
+                        }else if (edad>=5 && edad<10){
+                           
+                            if (ani.edad>=5 && ani.edad<10){
+                                System.out.println(ani);
+                            }
+                        }else{
+                            
+                            if (ani.edad>=10 && ani.edad<15){
+                                System.out.println(ani);
+                            }
+                        }
+                 
+                }
+        }else{
+                for (Animal ani: animales ){
+                    if (ani instanceof Perro ){
+                        if(edad>=0 && edad<5){
+                            if (ani.edad>=0 && ani.edad<5){
+                            System.out.println(ani);
+                            }
+                        }
+                        }else if (edad>=5 && edad<10){
+                           
+                            if (ani.edad>=5 && ani.edad<10){
+                                System.out.println(ani);
+                            }
+                        }else{
+                            
+                            if (ani.edad>=10 && ani.edad<15){
+                                System.out.println(ani);
+                            }
+                        }
+                 
+                }
+        }  
+        
+    }
+        
     
     public void consultaAdopcion(){
         

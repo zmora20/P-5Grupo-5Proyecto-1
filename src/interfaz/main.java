@@ -77,8 +77,7 @@ public class main {
                             case "6":
                                 opcion6();
                             break;
-                            case "7":
-                                break;
+                            
                             
                             default:
                                 System.out.println("Opcion invalida");
@@ -158,8 +157,7 @@ public class main {
         sc.nextLine();
         
         System.out.println("peso");
-        double peso=sc.nextDouble();
-        sc.nextLine();
+        double peso=Double.parseDouble(sc.nextLine());
        
         System.out.println("escriba observaciones");
         String observaciones=sc.nextLine();
@@ -171,8 +169,8 @@ public class main {
             Animal obj= new Perro(fecha,nombre,raza,sexo,edad,peso,observaciones,tamanio);
             emp.registrarAnimal(obj);
         }else{
-            Animal obj= new Animal(fecha,nombre,raza,sexo,edad,peso,observaciones);
-            emp.registrarAnimal(obj);
+            //Animal obj= new Animal(fecha,nombre,raza,sexo,edad,peso,observaciones);
+            //emp.registrarAnimal(obj);
         }
         
     }
