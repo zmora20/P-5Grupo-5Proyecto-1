@@ -55,6 +55,13 @@ public class Usuario {
         this.usuario=usuario;
         this.contraseña=contraseña;
     }
+    public String toString(){
+        return "Nombre : "+nombre +" "+"Direccion: "+direccion+" "+
+                "Telefono: "+telefono+"Correo Electronico:"+
+                correoElectronico+" "+"Fecha de Inicio: "+
+                fechaInicio+" "+"Sueldo :"+
+                sueldo;
+    }
     
     
 }

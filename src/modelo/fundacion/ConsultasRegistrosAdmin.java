@@ -30,6 +30,7 @@ public class ConsultasRegistrosAdmin {
     public static ArrayList<Animal> animal;
     public static ArrayList<PersonaAdopta> personas;
     
+    
     public ConsultasRegistrosAdmin(){
      empleados=new ArrayList<>();
      veterinarias=new ArrayList<>();
@@ -45,7 +46,7 @@ public class ConsultasRegistrosAdmin {
     public void inicializarDatos(){
     LocalDate fecha=LocalDate.now(); 
    
-     Animal pe = new Perro(fecha,"toby","poodle",Sexo.MACHO,12,1.45,
+    Animal pe = new Perro(fecha,"rene","poodle",Sexo.MACHO,12,1.45,
                 "blanco",Size.PEQUENIO);
      animal.add(pe);
     Animal g = new Gato(fecha,"toby","poodle",Sexo.MACHO,12,1.45,

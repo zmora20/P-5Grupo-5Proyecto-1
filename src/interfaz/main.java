@@ -77,7 +77,8 @@ public class main {
                             case "6":
                                 opcion6();
                             break;
-                            
+                            case "7":
+                                break;
                             
                             default:
                                 System.out.println("Opcion invalida");
@@ -169,8 +170,8 @@ public class main {
             Animal obj= new Perro(fecha,nombre,raza,sexo,edad,peso,observaciones,tamanio);
             emp.registrarAnimal(obj);
         }else{
-            //Animal obj= new Animal(fecha,nombre,raza,sexo,edad,peso,observaciones);
-            //emp.registrarAnimal(obj);
+            Animal obj= new Gato(fecha,nombre,raza,sexo,edad,peso,observaciones);
+            emp.registrarAnimal(obj);
         }
         
     }

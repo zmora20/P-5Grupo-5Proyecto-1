@@ -30,6 +30,11 @@ public class Gato extends Animal{
             int edad,double peso,String obser){
         super(fecha,nombre,raza,sexo,edad,peso,obser);        
     }
+    public String toString(){
+        return "Fecha de ingreso: "+this.GetFechaIngreso()+" "+"Nombre: "+nombre+" "+
+                "raza: "+raza+" "+"Sexoanimal:"+sexo+" "+"Edad del animal: "+
+                edad+" "+"Peso:"+peso+" "+"Observaciones:"+observaciones;
+    }
             
    
  

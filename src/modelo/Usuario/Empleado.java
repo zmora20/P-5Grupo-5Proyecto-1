@@ -23,8 +23,7 @@ import java.util.Collections;
 public class Empleado extends Usuario {
     public ArrayList<Animal> animales=ConsultasRegistrosAdmin.animal ;
     public ArrayList<PersonaAdopta> persona=ConsultasRegistrosAdmin.personas;
-    //public modelo.fundacion.PersonaAdopta pers;
-    public modelo.fundacion.Adopcion ad;
+    public static ArrayList<Adopcion>animalesAdoptados;
     Scanner sc = new Scanner(System.in);
 
         
@@ -193,10 +192,10 @@ public class Empleado extends Usuario {
     
     public void consultaAdopcion(){
         
-        Collections.sort(ad.animalesAdoptados);
+        Collections.sort(animalesAdoptados);
         //Collections.sort(ad.animalesAdoptados,Collections.reverseOrder());
         
-        for (Adopcion adop: ad.animalesAdoptados){
+        for (Adopcion adop:animalesAdoptados){
             System.out.println(adop);
         
         }
@@ -206,9 +205,10 @@ public class Empleado extends Usuario {
         opcionA = sc.nextInt();
         sc.nextLine();
         if (opcionA!=0){
-            for (Adopcion adop1: ad.animalesAdoptados){
+            for (Adopcion adop1:animalesAdoptados){
                 if (adop1.GetCodigoAdopcion()==opcionA){
                     System.out.println(adop1);
+                    System.out.println(adop1.animal.toString());
                 }        
             }
         }
@@ -222,7 +222,7 @@ public class Empleado extends Usuario {
         for (PersonaAdopta per: persona){
             if(per.GetIdentificacion().equals(cedula) && 
                     per.animalesAdoptados != 0 ){
-                for(Adopcion aad: ad.animalesAdoptados){
+                for(Adopcion aad:animalesAdoptados){
                     if(aad.persona.GetIdentificacion().equals(cedula)){
                         System.out.println(per);
                         System.out.println("Los animales que adopto son:");
@@ -327,7 +327,7 @@ public class Empleado extends Usuario {
     public void registrarAdopcion(String cedula,int codigoAnimal){
         boolean condicion1 = true;
         boolean condicion2 = false;
-        for (Adopcion ado: ad.animalesAdoptados){
+        for (Adopcion ado: animalesAdoptados){
             if (ado.animal.GetCodigo()==codigoAnimal){
                 condicion1=false;
                 System.out.println("El animal ha sido adoptado");              
@@ -345,7 +345,7 @@ public class Empleado extends Usuario {
           for (Animal c:animales){
               if(c.GetCodigo()==codigoAnimal){
                   Adopcion nuevaAdopcion=new Adopcion(fechaAdopcio,c);
-                  ad.animalesAdoptados.add(nuevaAdopcion);
+                  animalesAdoptados.add(nuevaAdopcion);
                   animales.remove(c);
                   nuevaAdopcion.AumentarCodigoAdopcion();
                   
@@ -355,4 +355,5 @@ public class Empleado extends Usuario {
         
         
     }
+    
 }

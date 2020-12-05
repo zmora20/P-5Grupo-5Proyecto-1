@@ -25,6 +25,10 @@ public class GastosVeterinaria {
         animal=animal;
         
     }
+    public String toString(){
+        return "Fecha de atencion : "+fechaAtencion +" "+"Monto: "+monto+" "+
+                "Animal: "+animal.toString();
+    }
     
     
 }

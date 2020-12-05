@@ -73,4 +73,10 @@ public class PersonaAdopta {
         this.correoElectro=correoElectro;
         this.preferencia=preferencia;
     }
+    public String toString(){
+        return "Nombre de la persona: "+nombrePersona+" "+"identificacion: "
+                +identificacion+" "+ "Direccion: "+direccion+" "+
+                "Telefono:"+telefono+" "+"Correo Electronico "+
+                correoElectro+" "+"Preferencia:"+preferencia;
+    }
 }

@@ -48,6 +48,11 @@ public abstract class  Animal {
         this.observaciones=obser;
         
     } 
+    public String toString(){
+        return "Fecha de ingreso: "+fechaIngreso+" "+"Nombre: "+nombre+" "+
+                "raza: "+raza+" "+"Sexoanimal:"+sexo+" "+"Edad del animal: "+
+                edad+" "+"Peso:"+peso+" "+"Observaciones:"+observaciones;
+    }
     
     
 }
