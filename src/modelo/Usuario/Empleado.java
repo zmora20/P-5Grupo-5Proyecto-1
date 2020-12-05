@@ -23,14 +23,15 @@ import java.util.Collections;
 public class Empleado extends Usuario {
     public ArrayList<Animal> animales=ConsultasRegistrosAdmin.animal ;
     public ArrayList<PersonaAdopta> persona=ConsultasRegistrosAdmin.personas;
-    public static ArrayList<Adopcion>animalesAdoptados;
+    public ArrayList<Adopcion>animalesAdoptad=
+            ConsultasRegistrosAdmin.animalesAdoptados;
     Scanner sc = new Scanner(System.in);
 
         
     
     
     
-    public Empleado(String nombre,String direccion,int telefono, String correo,
+    public Empleado(String nombre,String direccion,String telefono, String correo,
           LocalDate fechainicio,double sueldo,String usuario,String contraseña){
         super(nombre,direccion,telefono,correo,fechainicio,sueldo,usuario,
                 contraseña);
@@ -41,103 +42,117 @@ public class Empleado extends Usuario {
         String tipoAnimal = sc.nextLine().toUpperCase();
         System.out.println("Ingrese sexo del animal (Macho/Hembra):");
         String sexoAnimal = sc.nextLine().toUpperCase();
+        
         System.out.println("Ingrese edad del animal(0 si no quiere filtrar):");
         int edadAnimal ;
         edadAnimal= Integer.parseInt(sc.nextLine());
         //CONDICIONAL O FUNCION COMPARAR POR SEXO SOBRECARGA
-        if (tipoAnimal!=""){
-            if(tipoAnimal=="GATO" ){
-                for (Animal ani: animales){
-                    if (ani instanceof Perro){
-                        System.out.println(ani);
-                    }
-                }    
-            }else{
+        if (!tipoAnimal.equals("")&&sexoAnimal.equals("")&&edadAnimal==0){
+            if(tipoAnimal.equals("GATO") ){
                 for (Animal ani: animales){
                     if (ani instanceof Gato){
-                        System.out.println(ani);
-                    }          
-                }
-            }
-            
-        }else if (sexoAnimal!=""){
-            if(tipoAnimal=="MACHO" ){
-                for (Animal ani: animales){
-                    if (ani.sexo.MACHO.name()=="MACHO"){
-                        System.out.println(ani);
+                        System.out.println(ani.toString());
                     }
                 }    
             }else{
                 for (Animal ani: animales){
-                    if (ani.sexo.HEMBRA.name()=="HEMBRA"){
-                        System.out.println(ani);
+                    if (ani instanceof Perro){
+                        System.out.println(ani.toString());
                     }          
                 }
             }
             
-        }else if (edadAnimal!=0){
+        }else if (!sexoAnimal.equals("")&&tipoAnimal.equals("")&&edadAnimal==0){
+            
+            if(sexoAnimal.equals("MACHO") ){
+                
+                for (Animal ani: animales){
+                    if (ani.sexo.name().equals("MACHO")){
+                        System.out.println(ani.toString());
+                    }
+                }    
+            }else{
+                for (Animal ani: animales){
+                    if (ani.sexo.name().equals("HEMBRA")){
+                        System.out.println(ani.toString());
+                    }          
+                }
+            }
+            
+        }else if (edadAnimal!=0&&sexoAnimal.equals("")&&tipoAnimal.equals("")){
             if(edadAnimal>=0 && edadAnimal<5){
                 for (Animal ani: animales){
                     if (ani.edad>=0 && ani.edad<5){
-                        System.out.println(ani);
+                        System.out.println(ani.toString());
                     }
                 }
             }else if (edadAnimal>=5 && edadAnimal<10){
                 for (Animal ani: animales){
                     if (ani.edad>=5 && ani.edad<10){
-                        System.out.println(ani);
+                        System.out.println(ani.toString());
                     }
                 }
                 
             }else{
                 for (Animal ani: animales){
                     if (ani.edad>=10 && ani.edad<15){
-                        System.out.println(ani);
+                        System.out.println(ani.toString());
                     }
                 }
             }
             
-        }else if (sexoAnimal!=""&& edadAnimal!=0){
+        }else if (!sexoAnimal.equals("")&& edadAnimal!=0&&sexoAnimal.equals("")){
             consultarAnimal(tipoAnimal, edadAnimal);
             
             
-        }else if(tipoAnimal!="" && sexoAnimal!=""){
+        }else if(!tipoAnimal.equals("") && !sexoAnimal.equals("")&&edadAnimal==0){
             consultarAnimal(tipoAnimal,sexoAnimal);
             
-        }else{
-    }
+        }else if (!tipoAnimal.equals("") && !sexoAnimal.equals("") &&edadAnimal!=0){
+            consultarAnimal(tipoAnimal,sexoAnimal,edadAnimal);
+            
+        }else if(tipoAnimal.equals("") && sexoAnimal.equals("")&& edadAnimal==0) {
+            for (Animal ani: animales){
+                System.out.println(ani.toString());
+            }
+            
+        }
            
         
     }
     
     public void consultarAnimal(String tipoAnima,String sexo){
-        if(tipoAnima=="GATO" ){
+        if(tipoAnima.equals("GATO")){
+            if(sexo.equals("MACHO")){
                 for (Animal ani: animales ){
-                    if (ani instanceof Gato && ani.sexo.MACHO.name()==sexo){
-                        System.out.println(ani);
-                    }
-                }    
-        }else if(tipoAnima=="GATO" && sexo=="Hembra"){
-            for (Animal ani: animales){
-                if (ani instanceof Perro && ani.sexo.name()==sexo){
-                    System.out.println(ani);
-                    }
-                        
-                }
-        }else if(tipoAnima=="PERRO" && sexo=="MACHO"){
-            for (Animal ani: animales ){
-                    if (ani instanceof Perro && ani.sexo.MACHO.name()==sexo){
-                        System.out.println(ani);
+                    if (ani instanceof Gato && ani.sexo.name().equals(sexo)){
+                        System.out.println(ani.toString());
                     }
                 }
+            }else{
+                for (Animal ani: animales){
+                    if (ani instanceof Gato && ani.sexo.name().equals(sexo)){
+                        System.out.println(ani.toString());
+                    }
+                
+                }
+            }
         
-        }else{
-            for (Animal ani: animales ){
-                    if (ani instanceof Perro && ani.sexo.MACHO.name()==sexo){
-                        System.out.println(ani);
+        }else if(tipoAnima.equals("PERRO")){
+             if(sexo.equals("MACHO")){
+                for (Animal ani: animales ){
+                    if (ani instanceof Perro && ani.sexo.name().equals(sexo)){
+                        System.out.println(ani.toString());
                     }
                 }
-            
+            }else{
+                for (Animal ani: animales){
+                    if (ani instanceof Perro && ani.sexo.name().equals(sexo)){
+                        System.out.println(ani.toString());
+                    }
+                
+                }
+            }
         }
            
         
@@ -148,18 +163,18 @@ public class Empleado extends Usuario {
                     if (ani instanceof Gato ){
                         if(edad>=0 && edad<5){
                             if (ani.edad>=0 && ani.edad<5){
-                            System.out.println(ani);
+                            System.out.println(ani.toString());
                             }
                         }
                         }else if (edad>=5 && edad<10){
                            
                             if (ani.edad>=5 && ani.edad<10){
-                                System.out.println(ani);
+                                System.out.println(ani.toString());
                             }
                         }else{
                             
                             if (ani.edad>=10 && ani.edad<15){
-                                System.out.println(ani);
+                                System.out.println(ani.toString());
                             }
                         }
                  
@@ -169,18 +184,18 @@ public class Empleado extends Usuario {
                     if (ani instanceof Perro ){
                         if(edad>=0 && edad<5){
                             if (ani.edad>=0 && ani.edad<5){
-                            System.out.println(ani);
+                            System.out.println(ani.toString());
                             }
                         }
                         }else if (edad>=5 && edad<10){
                            
                             if (ani.edad>=5 && ani.edad<10){
-                                System.out.println(ani);
+                                System.out.println(ani.toString());
                             }
                         }else{
                             
                             if (ani.edad>=10 && ani.edad<15){
-                                System.out.println(ani);
+                                System.out.println(ani.toString());
                             }
                         }
                  
@@ -188,16 +203,115 @@ public class Empleado extends Usuario {
         }  
         
     }
+    public void consultarAnimal(String tipoAnima,String sexo,int edad){
+        if(tipoAnima.equals("GATO")){
+            if(sexo.equals("MACHO")){
+                for (Animal ani: animales ){
+                    if (ani instanceof Gato && ani.sexo.name().equals(sexo)){
+                        if(edad>=0 && edad<5){
+                            if (ani.edad>=0 && ani.edad<5){
+                            System.out.println(ani.toString());
+                            }
+                        
+                        }else if (edad>=5 && edad<10){
+                           
+                            if (ani.edad>=5 && ani.edad<10){
+                                System.out.println(ani.toString());
+                            }
+                        }else{
+                            
+                            if (ani.edad>=10 && ani.edad<15){
+                                System.out.println(ani.toString());
+                            }
+                        }
+                    }
+                }
+                
+            }else{
+                for (Animal ani: animales){
+                    if (ani instanceof Gato && ani.sexo.name().equals(sexo)){
+                        if(edad>=0 && edad<5){
+                            if (ani.edad>=0 && ani.edad<5){
+                            System.out.println(ani.toString());
+                            }
+                        
+                        }else if (edad>=5 && edad<10){
+                           
+                            if (ani.edad>=5 && ani.edad<10){
+                                System.out.println(ani.toString());
+                            }
+                        }else{
+                            
+                            if (ani.edad>=10 && ani.edad<15){
+                                System.out.println(ani.toString());
+                            }
+                        }
+                    }
+                
+                }
+            }
+        
+        }else if(tipoAnima.equals("PERRO")){
+            if(sexo.equals("MACHO")){
+                for (Animal ani: animales ){
+                    if (ani instanceof Perro && ani.sexo.name().equals(sexo)){
+                        if(edad>=0 && edad<5){
+                            if (ani.edad>=0 && ani.edad<5){
+                            System.out.println(ani.toString());
+                            }
+                        
+                        }else if (edad>=5 && edad<10){
+                           
+                            if (ani.edad>=5 && ani.edad<10){
+                                System.out.println(ani.toString());
+                            }
+                        }else{
+                            
+                            if (ani.edad>=10 && ani.edad<15){
+                                System.out.println(ani.toString());
+                            }
+                        }
+                    }
+                }
+            }else{
+                for (Animal ani: animales){
+                    if (ani instanceof Perro && ani.sexo.name().equals(sexo)){
+                        if(edad>=0 && edad<5){
+                            if (ani.edad>=0 && ani.edad<5){
+                            System.out.println(ani.toString());
+                            }
+                        
+                        }else if (edad>=5 && edad<10){
+                           
+                            if (ani.edad>=5 && ani.edad<10){
+                                System.out.println(ani.toString());
+                            }
+                        }else{
+                            
+                            if (ani.edad>=10 && ani.edad<15){
+                                System.out.println(ani.toString());
+                            }
+                 
+                        }
+                    }
+                }
+                
+            }
+        }
+        
+        
+        
+        
+    }
         
     
     public void consultaAdopcion(){
         
-        Collections.sort(animalesAdoptados);
+        Collections.sort(animalesAdoptad);
         //Collections.sort(ad.animalesAdoptados,Collections.reverseOrder());
         
-        for (Adopcion adop:animalesAdoptados){
+        for (Adopcion adop:animalesAdoptad){
             System.out.println(adop);
-        
         }
         System.out.println("Desea consultar una Adopcion"
                 + " en especifico por codigo");
@@ -205,7 +319,7 @@ public class Empleado extends Usuario {
         opcionA = sc.nextInt();
         sc.nextLine();
         if (opcionA!=0){
-            for (Adopcion adop1:animalesAdoptados){
+            for (Adopcion adop1:animalesAdoptad){
                 if (adop1.GetCodigoAdopcion()==opcionA){
                     System.out.println(adop1);
                     System.out.println(adop1.animal.toString());
@@ -222,7 +336,7 @@ public class Empleado extends Usuario {
         for (PersonaAdopta per: persona){
             if(per.GetIdentificacion().equals(cedula) && 
                     per.animalesAdoptados != 0 ){
-                for(Adopcion aad:animalesAdoptados){
+                for(Adopcion aad:animalesAdoptad){
                     if(aad.persona.GetIdentificacion().equals(cedula)){
                         System.out.println(per);
                         System.out.println("Los animales que adopto son:");
@@ -317,43 +431,59 @@ public class Empleado extends Usuario {
     }
     public boolean registrarPersona(PersonaAdopta per){
         
-        if (persona.contains(per)){
+        if (!persona.contains(per)){
             persona.add(per);
             return true;
         }
         return false;
     }
     
-    public void registrarAdopcion(String cedula,int codigoAnimal){
-        boolean condicion1 = true;
-        boolean condicion2 = false;
-        for (Adopcion ado: animalesAdoptados){
-            if (ado.animal.GetCodigo()==codigoAnimal){
-                condicion1=false;
-                System.out.println("El animal ha sido adoptado");              
+    public void registrarAdopcion(boolean condicion1,boolean condicion2,int codigoAnimal, String ID){
+        
+
+        if (condicion1 && condicion2){
+            
+            LocalDate fechaAdopcio=LocalDate.now();
+            for (Animal c:animales){
+                for (PersonaAdopta pet:persona){
+                    if(ID.equals(pet)){
+                        if(c.GetCodigo()==codigoAnimal){
+                            Adopcion nuevaAdopcion=new Adopcion(fechaAdopcio,c,pet);
+                            animalesAdoptad.add(nuevaAdopcion);
+                            animales.remove(c);
+                                nuevaAdopcion.AumentarCodigoAdopcion();
+                    
+                  
+                        }
+                    }
+                        
+                }        
             }
         }
-        for (PersonaAdopta pp:persona){
-         if (pp.GetIdentificacion()==cedula){
-             
-             condicion2=true;
-             pp.animalesAdoptados++; 
-         }
-        }
-      if (condicion1 && condicion2){
-          LocalDate fechaAdopcio=LocalDate.now();
-          for (Animal c:animales){
-              if(c.GetCodigo()==codigoAnimal){
-                  Adopcion nuevaAdopcion=new Adopcion(fechaAdopcio,c);
-                  animalesAdoptados.add(nuevaAdopcion);
-                  animales.remove(c);
-                  nuevaAdopcion.AumentarCodigoAdopcion();
-                  
-              }
-          }
-      }
         
         
     }
+    public boolean registrarAdopcion(String cedula){
+        for (PersonaAdopta pp:persona){
+            if (pp.GetIdentificacion().equals(cedula)){
+                
+                pp.animalesAdoptados++;
+                return true;
+            }else{
+                    System.out.println("la persona no estaregistrada");
+            }
+        }
+        return false;
+    }
+    public boolean registrarAdopcion(int codigoAnimal){
+        for (Adopcion ado: animalesAdoptad){
+            if(codigoAnimal==ado.animal.GetCodigo()){
+                System.out.println("El animal ha sido adoptado");
+                return false;
+            }
+        }
+        return true;
+    }
+
     
 }

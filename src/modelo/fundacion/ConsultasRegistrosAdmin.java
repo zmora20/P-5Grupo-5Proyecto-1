@@ -29,17 +29,22 @@ public class ConsultasRegistrosAdmin {
     public static ArrayList<GastosVeterinaria> gastosdeVeterinarias;
     public static ArrayList<Animal> animal;
     public static ArrayList<PersonaAdopta> personas;
+    public static ArrayList<Adopcion>animalesAdoptados;
     
     
     public ConsultasRegistrosAdmin(){
      empleados=new ArrayList<>();
+     
      veterinarias=new ArrayList<>();
      gastosdeVeterinarias=new ArrayList<>();
      personas=new ArrayList<>();
      animal=new ArrayList<>();
+     animalesAdoptados=new ArrayList<>();
      inicializarDatos();
              
     }
+ 
+    
     
             
             
@@ -49,21 +54,29 @@ public class ConsultasRegistrosAdmin {
     Animal pe = new Perro(fecha,"rene","poodle",Sexo.MACHO,12,1.45,
                 "blanco",Size.PEQUENIO);
      animal.add(pe);
+     pe.aumentarCodigo();
+    pe.toString();
     Animal g = new Gato(fecha,"toby","poodle",Sexo.MACHO,12,1.45,
                 "gris");
-    animal.add(g);
-    Usuario emp =new Empleado("Zaida","Norte",1,
+    g.aumentarCodigo();
+    Usuario emp =new Empleado("Zaida","Norte","125785733",
             "sara12mora@gmail.com",fecha,  54.78,"zmo","123");
     empleados.add(emp);
-    Usuario admi=new Administrador("Fabricio","Sur",054,
+    Usuario admi=new Administrador("Fabricio","Sur","05485857",
             "fquimis@espol.edu.ec",fecha,46.75,"frq","123",456);
     empleados.add(admi);
     
     Veterinaria vet=new Veterinaria("CaTDog",456,"zmora@espol.edu.ec");
     veterinarias.add(vet);
     PersonaAdopta per1=new PersonaAdopta("Leon", "096478","Centro","06313", 
-            "lvargas@espol.edu.ec", "gato,10 años");
-     personas.add(per1);
+            "lfvargas@espol.edu.ec", "gato,10 años");
+    PersonaAdopta per2=new PersonaAdopta("lala", "76476","Centro","06313", 
+            "lv657s@espol.edu.ec", "gato,10 años");
+     personas.add(per2);
+     Adopcion r =new Adopcion(fecha,g,per1);
+     animalesAdoptados.add(r);
+     r.AumentarCodigoAdopcion();
+    
     }
     
     
@@ -167,6 +180,6 @@ public class ConsultasRegistrosAdmin {
 	}
         
     }
-       
     
+        
 }

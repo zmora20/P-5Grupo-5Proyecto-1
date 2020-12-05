@@ -27,18 +27,18 @@ public class main {
        pt=new UIFundacion();
        
     
+        int i=0;
+        
+        while(i <2){
         System.out.println("Bienvenido");    
         System.out.print("Ingrese Usuario: ");
         String usuario= sc.nextLine();
         System.out.println("Ingrese Contraseña: ");
         String contraseña=sc.nextLine();
         String op = ""; 
-        int i=0;
         
-        while(i <2){
             if (pt.Validacion(usuario,contraseña)!= null){
                 System.out.println("credenciales validas");
-                i ++;
                 if (pt.ValidacionUsuario(pt.Validacion(usuario, contraseña))){
                     //empleado
                     emp= (Empleado) pt.Validacion(usuario, contraseña); 
@@ -69,7 +69,7 @@ public class main {
                                 opcion3();
                             break;
                             case "4":
-                                System.out.println("Adios");
+                                opcion4();
                                 break;
                             case "5":
                                 opcion5();
@@ -78,6 +78,7 @@ public class main {
                                 opcion6();
                             break;
                             case "7":
+                                System.out.println("se cerro la sesion");
                                 break;
                             
                             default:
@@ -133,6 +134,7 @@ public class main {
                         }
                         }while(!op.equals("6"));
                 }
+            break;    
             }else {
                 i ++;
                 System.out.println("Las credenciales son invalidas");
@@ -144,6 +146,7 @@ public class main {
     private static void opcion1(){
         System.out.println("Ingrese animal a registrar:Perro/Gato");
         String tipo=sc.nextLine().toUpperCase();
+        
         
         System.out.println("escriba el nombre ");
         String nombre=sc.nextLine();
@@ -164,14 +167,17 @@ public class main {
         String observaciones=sc.nextLine();
         
         LocalDate fecha=LocalDate.now();
-        if (tipo=="PERRO"){
+        
+        if (tipo.equals("PERRO")){
             System.out.println("el tamanio del perro");
             Size tamanio=Size.valueOf(sc.nextLine().toUpperCase());            
             Animal obj= new Perro(fecha,nombre,raza,sexo,edad,peso,observaciones,tamanio);
             emp.registrarAnimal(obj);
-        }else{
+        }else if (tipo.equals("GATO")){
             Animal obj= new Gato(fecha,nombre,raza,sexo,edad,peso,observaciones);
             emp.registrarAnimal(obj);
+        }else{
+            System.out.println("no coincide ");
         }
         
     }
@@ -201,11 +207,13 @@ public class main {
     }
     private static void opcion4(){
         System.out.println("Ingrese el codigo del animal");
-        int codigo=sc.nextInt();
+        int codigo=Integer.parseInt(sc.nextLine());
         
         System.out.println("Escriba su id ");
         String id=sc.nextLine();
-        emp.registrarAdopcion(id, codigo);
+        boolean cond1= emp.registrarAdopcion(id);
+        boolean cond2= emp.registrarAdopcion(codigo);
+        emp.registrarAdopcion(cond1, cond2, codigo, id);
         
         
     }
@@ -219,9 +227,9 @@ public class main {
         }
         System.out.println("Ingrese numero de cedula");
         String ced=sc.nextLine();
-        
+        if (!ced.equals("")){
         emp.consultaRegistro(ced);
-     
+        }
     }
     
     private static void opcion8(){
@@ -230,7 +238,7 @@ public class main {
         System.out.println("Ingrese direccion: ");
         String direccion=sc.nextLine();
         System.out.println("Ingrese numero telefono: ");
-        int telefono =Integer.parseInt(sc.nextLine());
+        String telefono =sc.nextLine();
         System.out.println("Ingrese correo electronico:  ");
         String correo=sc.nextLine();     
         LocalDate fechainicio=LocalDate.now();
@@ -272,13 +280,15 @@ public class main {
         double mon=Double.parseDouble(sc.nextLine());
         System.out.println("Ingrese codigo animal tratado:");
         int cod=Integer.parseInt(sc.nextLine());
-        for(Animal animBuscado: emp.animales){
+        for(Animal animBuscado:cr.animal){
             if(animBuscado.GetCodigo()==cod){
                 GastosVeterinaria gvt1=new 
                 GastosVeterinaria(fecha,mon,animBuscado);
                 cr.reagistrarGastoVeterinaria(gvt1);
                 cr.consultarGastoVeterinarias();
                 
+            }else{
+                System.out.println("se esta aqui");
             }
         }
             
@@ -295,7 +305,9 @@ public class main {
     //aqui se envian los correos 
     }
     
-    public static void main( String[] args){
+    
+    public static void main( String[] args){  
+      
         menuPrincipal();
         
     }

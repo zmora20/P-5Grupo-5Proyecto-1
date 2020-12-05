@@ -14,7 +14,7 @@ public class Administrador extends Usuario {
     private int numeroCuenta;
     public ConsultasRegistrosAdmin sc;
 
- public Administrador(String nombre,String direccion,int telefono, String correo,
+ public Administrador(String nombre,String direccion,String telefono, String correo,
           LocalDate fechainicio,double sueldo,String usuario,String contraseña,
           int cuenta){
      super(nombre,direccion,telefono,correo,fechainicio,sueldo,usuario,

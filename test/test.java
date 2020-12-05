@@ -8,16 +8,14 @@ import modelo.Usuario.*;
 import modelo.animal.*;
 import modelo.fundacion.*;
 import java.time.LocalDate;
+import java.util.List;
 /**
  *
  * @author Fabricio
  */
 public class test {
-    modelo.fundacion.ConsultasRegistrosAdmin consultaRegistro;
+    List<String>lista1;
     
-    
-    Empleado emp = new Empleado("nombre","direccion",123456789,
-            "abcd@espol.edu.ec",LocalDate.now(),400.40,"abcd","12345");
     
     
     

@@ -14,7 +14,7 @@ public class Usuario {
 
     private String correoElectronico;
     private String direccion;
-    private int telefono;
+    private String telefono;
     private String nombre;
     public LocalDate fechaInicio;
     private double sueldo;
@@ -28,7 +28,7 @@ public class Usuario {
     public String GetDireccion(){
         return direccion;
     }
-    public int GetTelefono(){
+    public String GetTelefono(){
         return telefono;
     }
     public String GetNombre(){
@@ -44,7 +44,7 @@ public class Usuario {
     public String Getcontraseña(){
         return contraseña;
     }
-    public Usuario(String nombre,String direccion,int telefono, String correo,
+    public Usuario(String nombre,String direccion,String telefono, String correo,
          LocalDate fechainicio,double sueldo,String usuario,String contraseña){
         this.nombre=nombre;
         this.direccion=direccion;
