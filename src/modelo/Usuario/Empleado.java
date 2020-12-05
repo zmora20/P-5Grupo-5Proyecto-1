@@ -21,19 +21,15 @@ import java.util.Collections;
  * @author zaida
  */
 public class Empleado extends Usuario {
-    public ArrayList<Animal> animales ;
-    public modelo.fundacion.PersonaAdopta pers;
+    public ArrayList<Animal> animales=ConsultasRegistrosAdmin.animal ;
+    public ArrayList<PersonaAdopta> persona=ConsultasRegistrosAdmin.personas;
+    //public modelo.fundacion.PersonaAdopta pers;
     public modelo.fundacion.Adopcion ad;
     Scanner sc = new Scanner(System.in);
 
         
     
-    LocalDate fecha=LocalDate.now();
     
-    Animal pe = new Perro(fecha,"toby","poodle",Sexo.MACHO,12,1.45,
-                "hhlo",Size.PEQUENIO);
-    Animal g = new Gato(fecha,"toby","poodle",Sexo.MACHO,12,1.45,
-                "hhlo");
     
     public Empleado(String nombre,String direccion,int telefono, String correo,
           LocalDate fechainicio,double sueldo,String usuario,String contraseña){
@@ -152,7 +148,7 @@ public class Empleado extends Usuario {
     }
     
     public void consultaRegistro(String cedula){
-        for (PersonaAdopta per: pers.personas){
+        for (PersonaAdopta per: persona){
             if(per.GetIdentificacion().equals(cedula) && 
                     per.animalesAdoptados != 0 ){
                 for(Adopcion aad: ad.animalesAdoptados){
@@ -175,7 +171,7 @@ public class Empleado extends Usuario {
             case "Si":
                 System.out.println("Ingrese su nombre:");
                 String nom = sc.nextLine();
-                for (PersonaAdopta per: pers.personas){
+                for (PersonaAdopta per: persona){
                     if (per.GetNombrePersona().equals(nom)){
                         System.out.println("Ingrese nueva direccion:");
                         String dir = sc.nextLine();
@@ -250,8 +246,8 @@ public class Empleado extends Usuario {
     }
     public boolean registrarPersona(PersonaAdopta per){
         
-        if (pers.personas.contains(per)){
-            pers.personas.add(per);
+        if (persona.contains(per)){
+            persona.add(per);
             return true;
         }
         return false;
@@ -266,7 +262,7 @@ public class Empleado extends Usuario {
                 System.out.println("El animal ha sido adoptado");              
             }
         }
-        for (PersonaAdopta pp: pers.personas){
+        for (PersonaAdopta pp:persona){
          if (pp.GetIdentificacion()==cedula){
              
              condicion2=true;

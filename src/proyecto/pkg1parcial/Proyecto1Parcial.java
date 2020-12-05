@@ -5,6 +5,8 @@
  */
 package proyecto.pkg1parcial;
 import modelo.fundacion.*;
+
+import interfaz.*;
 /**
  *
  * @author zaida

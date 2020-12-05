@@ -14,16 +14,18 @@ import modelo.fundacion.*;
 public class main {
     
     static UIFundacion pt;
-    static modelo.Usuario.Empleado xe;
-    static modelo.fundacion.PersonaAdopta pe;
+    //static modelo.Usuario.Empleado xe;
+    //static modelo.fundacion.PersonaAdopta pe;
     static modelo.fundacion.ConsultasRegistrosAdmin cr;
     static Scanner sc = new Scanner(System.in);
-    
+    static Empleado emp;
+    static Administrador adm;
     
     
     public static void menuPrincipal(){
-        
-               
+       cr=new ConsultasRegistrosAdmin();
+       pt=new UIFundacion();
+       
     
         System.out.println("Bienvenido");    
         System.out.print("Ingrese Usuario: ");
@@ -34,11 +36,12 @@ public class main {
         int i=0;
         
         while(i <2){
-            if (pt.Validacion(usuario, contraseña)!=null){
+            if (pt.Validacion(usuario,contraseña)!= null){
                 System.out.println("credenciales validas");
                 i ++;
                 if (pt.ValidacionUsuario(pt.Validacion(usuario, contraseña))){
                     //empleado
+                    emp= (Empleado) pt.Validacion(usuario, contraseña); 
                     do{
             
                         System.out.println("1. Registrar nuevo Animal");
@@ -86,6 +89,8 @@ public class main {
                     
                 }else{
                     //administrador
+                     adm= (Administrador) pt.Validacion(usuario, contraseña);
+                    
                     do{
             
                         System.out.println("1. Registrar Empleados");
@@ -151,25 +156,28 @@ public class main {
         System.out.println("edad");
         int edad=sc.nextInt();
         sc.nextLine();
+        
         System.out.println("peso");
         double peso=sc.nextDouble();
         sc.nextLine();
+       
         System.out.println("escriba observaciones");
         String observaciones=sc.nextLine();
+        
         LocalDate fecha=LocalDate.now();
         if (tipo=="PERRO"){
             System.out.println("el tamanio del perro");
             Size tamanio=Size.valueOf(sc.nextLine().toUpperCase());            
             Animal obj= new Perro(fecha,nombre,raza,sexo,edad,peso,observaciones,tamanio);
-            xe.registrarAnimal(obj);
+            emp.registrarAnimal(obj);
         }else{
             Animal obj= new Animal(fecha,nombre,raza,sexo,edad,peso,observaciones);
-            xe.registrarAnimal(obj);
+            emp.registrarAnimal(obj);
         }
         
     }
     private static void opcion2(){
-        xe.consultarAnimal();
+        emp.consultarAnimal();
     }
     private static void opcion3(){
         System.out.println("Ingrese nombre");
@@ -190,7 +198,7 @@ public class main {
         
         PersonaAdopta per1=new PersonaAdopta(nombre,id,direccion,telefono,
                 correoElectronico,Preferencias);
-        xe.registrarPersona(per1);     
+        emp.registrarPersona(per1);     
     }
     private static void opcion4(){
         System.out.println("Ingrese el codigo del animal");
@@ -198,22 +206,22 @@ public class main {
         
         System.out.println("Escriba su id ");
         String id=sc.nextLine();
-        xe.registrarAdopcion(id, codigo);
+        emp.registrarAdopcion(id, codigo);
         
         
     }
     private static void opcion5(){
-        xe.consultaAdopcion();
+        emp.consultaAdopcion();
     }
     private static void opcion6(){
-        for (PersonaAdopta per :pe.personas){
+        for (PersonaAdopta per :cr.personas){
             System.out.println(per);
             
         }
         System.out.println("Ingrese numero de cedula");
         String ced=sc.nextLine();
         
-        xe.consultaRegistro(ced);
+        emp.consultaRegistro(ced);
      
     }
     
@@ -265,7 +273,7 @@ public class main {
         double mon=Double.parseDouble(sc.nextLine());
         System.out.println("Ingrese codigo animal tratado:");
         int cod=Integer.parseInt(sc.nextLine());
-        for(Animal animBuscado: xe.animales){
+        for(Animal animBuscado: emp.animales){
             if(animBuscado.GetCodigo()==cod){
                 GastosVeterinaria gvt1=new 
                 GastosVeterinaria(fecha,mon,animBuscado);
@@ -288,7 +296,7 @@ public class main {
     //aqui se envian los correos 
     }
     
-    public static void main(String[] args){
+    public static void main( String[] args){
         menuPrincipal();
         
     }

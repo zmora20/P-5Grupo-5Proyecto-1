@@ -17,7 +17,7 @@ public class PersonaAdopta {
     private String telefono;
     private String correoElectro;
     public String preferencia;
-    public ArrayList<PersonaAdopta> personas;
+    //public ArrayList<PersonaAdopta> personas=ConsultasRegistrosAdmin.personas;
     public int animalesAdoptados = 0;
     
     public void SetNombrePersona(String nombrePersona){
@@ -71,6 +71,6 @@ public class PersonaAdopta {
         this.direccion=direccion;
         this.telefono=telefono;
         this.correoElectro=correoElectro;
-        preferencia=preferencia;
+        this.preferencia=preferencia;
     }
 }

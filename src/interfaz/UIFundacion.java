@@ -4,14 +4,21 @@ import java.util.Scanner;
 import modelo.Usuario.*;
 import modelo.animal.*;
 import modelo.fundacion.*;
+import java.time.LocalDate;
 
 public class UIFundacion {
     public Scanner sc;
-    public modelo.fundacion.ConsultasRegistrosAdmin listas;
+    public ConsultasRegistrosAdmin listas;
 
+  public UIFundacion(){
+  listas=new ConsultasRegistrosAdmin();
+  }
+    
+    
     public Usuario Validacion(String usuario, String contrasenia){
         for (Usuario Objusuario :listas.empleados){
-            if (Objusuario.usuario==usuario && Objusuario.Getcontraseña()==contrasenia){
+         if (Objusuario.usuario.equals(usuario) &&
+                 Objusuario.Getcontraseña().equals(contrasenia)){
                 
                 return Objusuario;                                   
             }
@@ -27,7 +34,8 @@ public class UIFundacion {
     }
     
 
-                           
+    
+  
         
     
    

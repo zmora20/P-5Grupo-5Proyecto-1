@@ -16,16 +16,56 @@ import javax.mail.internet.MimeMessage;
 import modelo.Usuario.*;
 import modelo.animal.*;
 import modelo.fundacion.*;
-
+import java.time.LocalDate;
+ 
 /**
  *
  * @author Fabricio
  */
+
 public class ConsultasRegistrosAdmin {
-    public modelo.Usuario.Empleado emple;
-    public ArrayList <Usuario> empleados;
-    public ArrayList<Veterinaria> veterinarias;
-    public ArrayList<GastosVeterinaria> gastosdeVeterinarias;
+    public static ArrayList <Usuario> empleados;
+    public static ArrayList<Veterinaria> veterinarias;
+    public static ArrayList<GastosVeterinaria> gastosdeVeterinarias;
+    public static ArrayList<Animal> animal;
+    public static ArrayList<PersonaAdopta> personas;
+    
+    public ConsultasRegistrosAdmin(){
+     empleados=new ArrayList<>();
+     veterinarias=new ArrayList<>();
+     gastosdeVeterinarias=new ArrayList<>();
+     personas=new ArrayList<>();
+     animal=new ArrayList<>();
+     inicializarDatos();
+             
+    }
+    
+            
+            
+    public void inicializarDatos(){
+    LocalDate fecha=LocalDate.now(); 
+   
+     Animal pe = new Perro(fecha,"toby","poodle",Sexo.MACHO,12,1.45,
+                "blanco",Size.PEQUENIO);
+     animal.add(pe);
+    Animal g = new Gato(fecha,"toby","poodle",Sexo.MACHO,12,1.45,
+                "gris");
+    animal.add(g);
+    Usuario emp =new Empleado("Zaida","Norte",1,
+            "sara12mora@gmail.com",fecha,  54.78,"zmo","123");
+    empleados.add(emp);
+    Usuario admi=new Administrador("Fabricio","Sur",054,
+            "fquimis@espol.edu.ec",fecha,46.75,"frq","123",456);
+    empleados.add(admi);
+    
+    Veterinaria vet=new Veterinaria("CaTDog",456,"zmora@espol.edu.ec");
+    veterinarias.add(vet);
+    PersonaAdopta per1=new PersonaAdopta("Leon", "096478","Centro","06313", 
+            "lvargas@espol.edu.ec", "gato,10 años");
+     personas.add(per1);
+    }
+    
+    
     
     public boolean agregarEmpleado(Usuario usu){
         for (int i= 0;i<empleados.size();i++){
@@ -84,7 +124,7 @@ public class ConsultasRegistrosAdmin {
             double dineroVeterinaria= vete.GetMonto();
             montoVeterinaria=montoVeterinaria+dineroVeterinaria;
         }
-        for (Animal ani: emple.animales){
+        for (Animal ani: animal){
             if (ani instanceof Gato){
                 double montoPorAnimal=ani.calcularGasto();
                 montoAnimales= montoAnimales+montoPorAnimal;
