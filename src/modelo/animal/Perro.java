@@ -45,7 +45,7 @@ public class Perro extends Animal {
     }
     public String toString(){
         return "Fecha de ingreso: "+this.GetFechaIngreso()+" "+"Nombre: "+nombre+" "+
-                "raza: "+raza+" "+"Sexoanimal:"+sexo+" "+"Edad del animal: "+
+                "raza: "+GetCodigo()+" "+"Sexoanimal:"+sexo+" "+"Edad del animal: "+
                 edad+" "+"Peso:"+peso+" "+"Observaciones:"+observaciones+" "+"Tamanio del perro :"+size;
     }
 }

@@ -331,7 +331,7 @@ public class Empleado extends Usuario {
             System.out.println(adop);
         }
         System.out.println("Desea consultar una Adopcion"
-                + " en especifico por codigo");
+                + " en especifico por codigo(0 si no quiere)");
         int opcionA=0;
         opcionA = sc.nextInt();
         sc.nextLine();
@@ -463,12 +463,14 @@ public class Empleado extends Usuario {
             LocalDate fechaAdopcio=LocalDate.now();
             for (Animal c:animales){
                 for (PersonaAdopta pet:persona){
-                    if(ID.equals(pet)){
+                    if(ID.equals(pet.GetIdentificacion())){
+                        System.out.println("si pasa por aqui");
                         if(c.GetCodigo()==codigoAnimal){
+                            System.out.println("si pasa por aqui");
                             Adopcion nuevaAdopcion=new Adopcion(fechaAdopcio,c,pet);
                             animalesAdoptad.add(nuevaAdopcion);
                             animales.remove(c);
-                                nuevaAdopcion.AumentarCodigoAdopcion();
+                            nuevaAdopcion.AumentarCodigoAdopcion();
                     
                   
                         }
@@ -481,19 +483,19 @@ public class Empleado extends Usuario {
         
     }
     public boolean registrarAdopcion(String cedula){
+        boolean c=false;
         for (PersonaAdopta pp:persona){
             if (pp.GetIdentificacion().equals(cedula)){
-                
                 pp.animalesAdoptados++;
                 return true;
-            }else{
-                    System.out.println("la persona no esta registrada");
-            }
+            }          
         }
-        return false;
+        return c;
     }
     public boolean registrarAdopcion(int codigoAnimal){
         for (Adopcion ado: animalesAdoptad){
+            
+            System.out.println(ado.animal.GetCodigo());
             if(codigoAnimal==ado.animal.GetCodigo()){
                 System.out.println("El animal ha sido adoptado");
                 return false;

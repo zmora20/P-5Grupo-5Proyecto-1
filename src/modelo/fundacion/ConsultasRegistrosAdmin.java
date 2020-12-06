@@ -57,10 +57,17 @@ public class ConsultasRegistrosAdmin {
                 "blanco",Size.PEQUENIO);
      animal.add(pe);
      pe.aumentarCodigo();
+     
     pe.toString();
     Animal g = new Gato(fecha,"toby","poodle",Sexo.MACHO,12,1.45,
                 "gris");
-    g.aumentarCodigo();
+    
+     g.aumentarCodigo();
+    Animal go = new Gato(fecha,"toby","poodle",Sexo.MACHO,12,1.45,
+                "gris");
+    
+     go.aumentarCodigo();
+    animal.add(go);
     Usuario emp =new Empleado("Zaida","Norte","125785733",
             "sara12mora@gmail.com",fecha,  54.78,"zmo","123");
     empleados.add(emp);
@@ -75,7 +82,7 @@ public class ConsultasRegistrosAdmin {
     personas.add(per1);
     PersonaAdopta per2=new PersonaAdopta("lala", "76476","Centro","06313", 
             "lv657s@espol.edu.ec", "gato,10 años");
-    //personas.add(per2);
+    personas.add(per2);
      Adopcion r =new Adopcion(fecha,g,per1);
      animalesAdoptados.add(r);
      r.AumentarCodigoAdopcion();
@@ -110,7 +117,7 @@ public class ConsultasRegistrosAdmin {
     
     public void consultarVeterinarias(){
         for (Veterinaria ve : veterinarias ){
-            System.out.println(ve);
+            System.out.println(ve.toString());
         }
             
         
@@ -161,7 +168,9 @@ public class ConsultasRegistrosAdmin {
      * @param mensaje
      */
     public void enviarCorreo(String destinatario, String asunto, 
-                String mensaje ){
+                String mensaje []){
+            String mensa="Hay un nuevo animal con sus preferencias"+
+                    mensaje[0]+","+mensaje[1];
             
             /* Configuracion de la cuenta */
             final String correoEmisor = "fundacion4patas20@gmail.com";
@@ -169,7 +178,7 @@ public class ConsultasRegistrosAdmin {
             
             Properties propiedad = new Properties();
             propiedad.put("mail.smtp.host", "smtp.gmail.com");
-            propiedad.put("mail.smtp.port", "587");
+            propiedad.put("mail.smtp.port", "465");
             propiedad.put("mail.smtp.auth", "true");
             propiedad.put("mail.smtp.starttls.enable", "true");
             propiedad.put("mail.smtp.user", correoEmisor);
@@ -184,7 +193,7 @@ public class ConsultasRegistrosAdmin {
                 mail.addRecipient(Message.RecipientType.TO, 
                         new InternetAddress(destinatario));
                 mail.setSubject(asunto);
-                mail.setText(mensaje);
+                mail.setText(mensa);
                 
                 Transport transporte = sesion.getTransport("smtp");
                 transporte.connect("smtp.gmail.com", correoEmisor, claveEmisor);

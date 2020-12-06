@@ -35,10 +35,10 @@ public class Adopcion implements Comparable<Adopcion> {
         codigoAdopcion++;
     }
     
-    public Adopcion(LocalDate fech,Animal anim,PersonaAdopta persona){
+    public Adopcion(LocalDate fech,Animal anim,PersonaAdopta person){
         this.fecha=fech;
         animal=anim;
-        persona=persona;
+        persona=person;
     }
 
     @Override
@@ -46,12 +46,11 @@ public class Adopcion implements Comparable<Adopcion> {
         return fecha.compareTo(o.GetFecha());
         
     }
-    /*public String toString(){
+    public String toString(){
         return "Codigo Adopcion: "+codigoAdopcion+" "+"Fecha: "+fecha+" "+
                 "Codigo Animal: "+animal.GetCodigo()+"Nombre animal:"+
                 animal.nombre+" "+"Cedula adoptante: "+
-                persona.GetIdentificacion()+" "+"Nombre adoptante:"+
-                persona.GetNombrePersona();
-    }*/
+                persona.GetIdentificacion()+" "+"Nombre adoptante:"+persona.GetNombrePersona();
+    }
 }
 

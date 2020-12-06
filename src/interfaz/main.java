@@ -31,17 +31,18 @@ public class main {
        pt=new UIFundacion();
        
     
-        int i=0;
+        String cond="";
         
-        while(i <2){
+        while(cond!="SI"){
         System.out.println("Bienvenido");    
         System.out.print("Ingrese Usuario: ");
         String usuario= sc.nextLine();
         System.out.println("Ingrese Contraseña: ");
         String contraseña=sc.nextLine();
+        System.out.print("salir del programa(si/no)");
+        cond= sc.nextLine().toUpperCase();
         String op = ""; 
-        
-            if (pt.Validacion(usuario,contraseña)!= null){
+            if (pt.Validacion(usuario,contraseña)!= null ){
                 System.out.println("Credenciales validas");
                 if (pt.ValidacionUsuario(pt.Validacion(usuario, contraseña))){
                     //empleado
@@ -138,9 +139,13 @@ public class main {
                         }
                         }while(!op.equals("6"));
                 }
-            break;    
+            
+            
+            }else if(cond.equals("SI")){
+                    break;
+                    
             }else {
-                i ++;
+                
                 System.out.println("Las credenciales son invalidas");
         }
         }
@@ -218,6 +223,7 @@ public class main {
         String id=sc.nextLine();
         boolean cond1= emp.registrarAdopcion(id);
         boolean cond2= emp.registrarAdopcion(codigo);
+        
         emp.registrarAdopcion(cond1, cond2, codigo, id);
         
         
@@ -311,29 +317,22 @@ public class main {
         
     private static void opcion12(){
         
-    //aqui se envian los correos 
-    String asunto = "Informacion";
-    ArrayList<PersonaAdopta> lista = modelo.fundacion.ConsultasRegistrosAdmin
+        //aqui se envian los correos 
+        String asunto = "Informacion";
+        ArrayList<PersonaAdopta> lista = modelo.fundacion.ConsultasRegistrosAdmin
             .personas;
     
     
 
     
-    for (PersonaAdopta adt: lista){
-        String[] preferencias = adt.preferencia.split(",");
-        List<String> listaNueva = Arrays.asList(preferencias);
-        ArrayList<String> listaPreferencias = new ArrayList<String>(listaNueva);
-        String animalPreferencia = listaPreferencias.get(0);
-        String sexoPreferencia = listaPreferencias.get(1).toUpperCase();
-        int edadPreferencia = Integer.parseInt(listaPreferencias.get(2));
-        cr.enviarCorreo(adt.GetCorreoElectro(), asunto, 
-                emp.consultarAnimal(animalPreferencia,sexoPreferencia,
-                        edadPreferencia));
+        for (PersonaAdopta adt: lista){
+            String[] preferencias = adt.preferencia.split(",");
+            cr.enviarCorreo(adt.GetCorreoElectro(), asunto, preferencias);
         
 //adt.preferencia
         
         
-    }
+        }
     
     
     

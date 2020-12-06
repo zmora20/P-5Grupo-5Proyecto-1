@@ -16,10 +16,10 @@ public abstract class  Animal {
     public String raza;
     public Sexo sexo;
     public int edad;
-    private static int codigo;
+    private int codigo;
     public double peso;
     public String observaciones;
-    
+   
     
     public abstract double  calcularGasto();
     
@@ -33,7 +33,8 @@ public abstract class  Animal {
     
 
     
-    public void aumentarCodigo(){
+    public  void aumentarCodigo(){
+        
         codigo++;
     }
     
@@ -50,7 +51,7 @@ public abstract class  Animal {
     } 
     public String toString(){
         return "Fecha de ingreso: "+fechaIngreso+" "+"Nombre: "+nombre+" "+
-                "raza: "+raza+" "+"Sexoanimal:"+sexo+" "+"Edad del animal: "+
+                "raza: "+codigo+" "+"Sexoanimal:"+sexo+" "+"Edad del animal: "+
                 edad+" "+"Peso:"+peso+" "+"Observaciones:"+observaciones;
     }
     

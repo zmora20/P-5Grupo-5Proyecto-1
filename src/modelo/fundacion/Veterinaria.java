@@ -20,7 +20,10 @@ public class Veterinaria {
         telefono=telefono;
         correo=correoElectronico;
     }
-    
+    public String toString(){
+        return "Nombre  : "+nombre +" "+"Telefono: "+telefono+" "+
+                "Correo electronico: "+correoElectronico;
+    }
     
     
     
