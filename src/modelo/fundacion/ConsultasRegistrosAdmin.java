@@ -17,6 +17,8 @@ import modelo.Usuario.*;
 import modelo.animal.*;
 import modelo.fundacion.*;
 import java.time.LocalDate;
+
+
  
 /**
  *
@@ -69,10 +71,11 @@ public class ConsultasRegistrosAdmin {
     Veterinaria vet=new Veterinaria("CaTDog",456,"zmora@espol.edu.ec");
     veterinarias.add(vet);
     PersonaAdopta per1=new PersonaAdopta("Leon", "096478","Centro","06313", 
-            "lfvargas@espol.edu.ec", "gato,10 años");
+            "lfvargas@espol.edu.ec", "gato,macho,10");
+    personas.add(per1);
     PersonaAdopta per2=new PersonaAdopta("lala", "76476","Centro","06313", 
             "lv657s@espol.edu.ec", "gato,10 años");
-     personas.add(per2);
+    //personas.add(per2);
      Adopcion r =new Adopcion(fecha,g,per1);
      animalesAdoptados.add(r);
      r.AumentarCodigoAdopcion();
@@ -150,36 +153,53 @@ public class ConsultasRegistrosAdmin {
         }
         return gastoAdministrativo+montoVeterinaria+montoAnimales;
     }
-    public void enviarCorreo(PersonaAdopta per ){
-        Properties properties = new Properties();
-        properties.put("mail.smtp.host", "mail.gmail.com");
-	properties.put("mail.smtp.starttls.enable", "true");
-	properties.put("mail.smtp.port",25);
-	properties.put("mail.smtp.mail.sender","emisor@gmail.com");
-	properties.put("mail.smtp.user", "usuario");
-	properties.put("mail.smtp.auth", "true");
-        Session session = Session.getDefaultInstance(properties);
-        
-        try{
-            MimeMessage message = new MimeMessage(session);
-            message.setFrom(new InternetAddress((String)properties.get
-                ("mail.smtp.mail.sender")));
-            message.addRecipient(Message.RecipientType.TO, 
-                    new InternetAddress("receptor@gmail.com"));
-            message.setSubject("Prueba");
-            message.setText("Texto");
-            Transport t = session.getTransport("smtp");
-            t.connect((String)properties.get("mail.smtp.user"), "password");
-            t.sendMessage(message, message.getAllRecipients());
-            t.close();
-        }catch (MessagingException me){
-            //Aqui se deberia o mostrar un mensaje de error o en lugar
-            //de no hacer nada con la excepcion, lanzarla para que el modulo
-            //superior la capture y avise al usuario con un popup, por ejemplo.
-            return;
-	}
-        
+
+    /**
+     *
+     * @param destinatario
+     * @param asunto
+     * @param mensaje
+     */
+    public void enviarCorreo(String destinatario, String asunto, 
+                String mensaje ){
+            
+            /* Configuracion de la cuenta */
+            final String correoEmisor = "fundacion4patas20@gmail.com";
+            final String claveEmisor = "poob2020";
+            
+            Properties propiedad = new Properties();
+            propiedad.put("mail.smtp.host", "smtp.gmail.com");
+            propiedad.put("mail.smtp.port", "587");
+            propiedad.put("mail.smtp.auth", "true");
+            propiedad.put("mail.smtp.starttls.enable", "true");
+            propiedad.put("mail.smtp.user", correoEmisor);
+            propiedad.put("mail.smtp.clave", claveEmisor);
+            
+            Session sesion = Session.getDefaultInstance(propiedad);
+            MimeMessage mail = new MimeMessage(sesion);
+            
+            System.out.println("Procesando envio de mensaje...");
+            /* Verifica que el correo se cree de forma correcta */
+            try {
+                mail.addRecipient(Message.RecipientType.TO, 
+                        new InternetAddress(destinatario));
+                mail.setSubject(asunto);
+                mail.setText(mensaje);
+                
+                Transport transporte = sesion.getTransport("smtp");
+                transporte.connect("smtp.gmail.com", correoEmisor, claveEmisor);
+                transporte.sendMessage(mail, mail.getAllRecipients());
+                transporte.close();
+                
+                System.out.println("Mensaje enviado con exito, revise su "
+                        + "bandeja de entrada");
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+        }
     }
+        
+
     
         
-}
+

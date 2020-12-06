@@ -43,7 +43,8 @@ public class Empleado extends Usuario {
         System.out.println("Ingrese sexo del animal (Macho/Hembra):");
         String sexoAnimal = sc.nextLine().toUpperCase();
         
-        System.out.println("Ingrese edad del animal(0 si no quiere filtrar):");
+        System.out.println("Ingrese numero de edad del animal(0 si no quiere "
+                + "filtrar):");
         int edadAnimal ;
         edadAnimal= Integer.parseInt(sc.nextLine());
         //CONDICIONAL O FUNCION COMPARAR POR SEXO SOBRECARGA
@@ -203,7 +204,7 @@ public class Empleado extends Usuario {
         }  
         
     }
-    public void consultarAnimal(String tipoAnima,String sexo,int edad){
+    public Animal consultarAnimal(String tipoAnima,String sexo,int edad){
         if(tipoAnima.equals("GATO")){
             if(sexo.equals("MACHO")){
                 for (Animal ani: animales ){
@@ -211,17 +212,21 @@ public class Empleado extends Usuario {
                         if(edad>=0 && edad<5){
                             if (ani.edad>=0 && ani.edad<5){
                             System.out.println(ani.toString());
+                            return ani;
+                            
                             }
                         
                         }else if (edad>=5 && edad<10){
                            
                             if (ani.edad>=5 && ani.edad<10){
                                 System.out.println(ani.toString());
+                                return ani;
                             }
                         }else{
                             
                             if (ani.edad>=10 && ani.edad<15){
                                 System.out.println(ani.toString());
+                                return ani;
                             }
                         }
                     }
@@ -233,17 +238,20 @@ public class Empleado extends Usuario {
                         if(edad>=0 && edad<5){
                             if (ani.edad>=0 && ani.edad<5){
                             System.out.println(ani.toString());
+                            return ani;
                             }
                         
                         }else if (edad>=5 && edad<10){
                            
                             if (ani.edad>=5 && ani.edad<10){
                                 System.out.println(ani.toString());
+                                return ani;
                             }
                         }else{
                             
                             if (ani.edad>=10 && ani.edad<15){
                                 System.out.println(ani.toString());
+                                return ani;
                             }
                         }
                     }
@@ -258,17 +266,20 @@ public class Empleado extends Usuario {
                         if(edad>=0 && edad<5){
                             if (ani.edad>=0 && ani.edad<5){
                             System.out.println(ani.toString());
+                            return ani;
                             }
                         
                         }else if (edad>=5 && edad<10){
                            
                             if (ani.edad>=5 && ani.edad<10){
                                 System.out.println(ani.toString());
+                                return ani;
                             }
                         }else{
                             
                             if (ani.edad>=10 && ani.edad<15){
                                 System.out.println(ani.toString());
+                                return ani;
                             }
                         }
                     }
@@ -279,17 +290,20 @@ public class Empleado extends Usuario {
                         if(edad>=0 && edad<5){
                             if (ani.edad>=0 && ani.edad<5){
                             System.out.println(ani.toString());
+                            return ani;
                             }
                         
                         }else if (edad>=5 && edad<10){
                            
                             if (ani.edad>=5 && ani.edad<10){
                                 System.out.println(ani.toString());
+                                return ani;
                             }
                         }else{
                             
                             if (ani.edad>=10 && ani.edad<15){
                                 System.out.println(ani.toString());
+                                return ani;
                             }
                  
                         }
@@ -298,11 +312,14 @@ public class Empleado extends Usuario {
                 
             }
         }
+        return null;
         
         
         
         
     }
+    
+    
         
     
     public void consultaAdopcion(){
@@ -470,7 +487,7 @@ public class Empleado extends Usuario {
                 pp.animalesAdoptados++;
                 return true;
             }else{
-                    System.out.println("la persona no estaregistrada");
+                    System.out.println("la persona no esta registrada");
             }
         }
         return false;

@@ -5,10 +5,13 @@
  */
 package interfaz;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Scanner;
 import modelo.Usuario.*;
 import modelo.animal.*;
 import modelo.fundacion.*;
+import java.util.List;
+import java.util.Arrays;
 
 
 public class main {
@@ -20,6 +23,7 @@ public class main {
     static Scanner sc = new Scanner(System.in);
     static Empleado emp;
     static Administrador adm;
+    
     
     
     public static void menuPrincipal(){
@@ -38,7 +42,7 @@ public class main {
         String op = ""; 
         
             if (pt.Validacion(usuario,contraseña)!= null){
-                System.out.println("credenciales validas");
+                System.out.println("Credenciales validas");
                 if (pt.ValidacionUsuario(pt.Validacion(usuario, contraseña))){
                     //empleado
                     emp= (Empleado) pt.Validacion(usuario, contraseña); 
@@ -78,7 +82,7 @@ public class main {
                                 opcion6();
                             break;
                             case "7":
-                                System.out.println("se cerro la sesion");
+                                System.out.println("Se cerro la sesion");
                                 break;
                             
                             default:
@@ -124,7 +128,7 @@ public class main {
                                 opcion12();
                             break;
                             case "6":
-                                System.out.println("se cerro la sesion");
+                                System.out.println("Se cerro la sesion");
                                 break;
                             
                             default:
@@ -144,26 +148,26 @@ public class main {
         
     }
     private static void opcion1(){
-        System.out.println("Ingrese animal a registrar:Perro/Gato");
+        System.out.println("Ingrese animal a registrar (Perro/Gato):");
         String tipo=sc.nextLine().toUpperCase();
         
         
-        System.out.println("escriba el nombre ");
+        System.out.println("Escriba el nombre ");
         String nombre=sc.nextLine();
-        System.out.println("raza");
+        System.out.println("Escriba la raza");
         String raza=sc.nextLine();
-        System.out.println("sexo del animal (macho/hembra) ");
+        System.out.println("Escriba sexo del animal (macho/hembra): ");
         //no se como llamar a un enum
         Sexo sexo=Sexo.valueOf(sc.nextLine().toUpperCase());
         
-        System.out.println("edad");
+        System.out.println("Escriba el numero de edad del animal");
         int edad=sc.nextInt();
         sc.nextLine();
         
-        System.out.println("peso");
+        System.out.println("Escriba el peso");
         double peso=Double.parseDouble(sc.nextLine());
        
-        System.out.println("escriba observaciones");
+        System.out.println("Escriba observaciones");
         String observaciones=sc.nextLine();
         
         LocalDate fecha=LocalDate.now();
@@ -177,7 +181,7 @@ public class main {
             Animal obj= new Gato(fecha,nombre,raza,sexo,edad,peso,observaciones);
             emp.registrarAnimal(obj);
         }else{
-            System.out.println("no coincide ");
+            System.out.println("No coincide ");
         }
         
     }
@@ -188,17 +192,18 @@ public class main {
         System.out.println("Ingrese nombre");
         String nombre=sc.nextLine();
         
-        System.out.println("escriba su id ");
+        System.out.println("Escriba su identificacion ");
         String id=sc.nextLine();
-        System.out.println("escriba su direccion");
+        System.out.println("Escriba su direccion");
         String direccion=sc.nextLine();
-        System.out.println("telefono ");
+        System.out.println("Escriba su elefono ");
         //no se como llamar a un enum
         String telefono=sc.nextLine();
         
-        System.out.println("correo electronico");
+        System.out.println("Escriba su correo electronico");
         String correoElectronico=sc.nextLine();
-        System.out.println("sus preferencias");
+        System.out.println("Escriba sus preferencias (tipo de animal,"
+                + "sexo del animal, numero de edad del animal)");
         String Preferencias=sc.nextLine();
         
         PersonaAdopta per1=new PersonaAdopta(nombre,id,direccion,telefono,
@@ -209,7 +214,7 @@ public class main {
         System.out.println("Ingrese el codigo del animal");
         int codigo=Integer.parseInt(sc.nextLine());
         
-        System.out.println("Escriba su id ");
+        System.out.println("Escriba su identificacion ");
         String id=sc.nextLine();
         boolean cond1= emp.registrarAdopcion(id);
         boolean cond2= emp.registrarAdopcion(codigo);
@@ -244,18 +249,18 @@ public class main {
         LocalDate fechainicio=LocalDate.now();
         System.out.println("Ingrese sueldo ganado:");    
         double sueldo=Double.parseDouble(sc.nextLine());
-        System.out.println("Ingrese Usuario:");
+        System.out.println("Ingrese usuario:");
         String usuario=sc.nextLine();
-        System.out.println("Ingrese Contraseña:");
+        System.out.println("Ingrese contraseña:");
         String contraseña=sc.nextLine();
-        System.out.println("Es Empleado: SI/NO");
+        System.out.println("¿Es empleado? (SI/NO)");
         String cnd=sc.nextLine().toUpperCase();
-        if (cnd=="SI"){
+        if (cnd.equals("SI")){
            Usuario e1=new Empleado(nombre,direccion,telefono,correo,fechainicio,
            sueldo,usuario,contraseña);
            cr.agregarEmpleado(e1);
         }else{
-            System.out.println("ingrese numero de cuenta ");
+            System.out.println("Ingrese numero de cuenta ");
             int nC=Integer.parseInt(sc.nextLine());
             Usuario e2=new Administrador(nombre,direccion,telefono,correo,
                fechainicio,sueldo,usuario,contraseña,nC);
@@ -278,7 +283,7 @@ public class main {
         LocalDate fecha=LocalDate.now();
         System.out.println("Ingrese monto gastado:");
         double mon=Double.parseDouble(sc.nextLine());
-        System.out.println("Ingrese codigo animal tratado:");
+        System.out.println("Ingrese codigo del animal tratado:");
         int cod=Integer.parseInt(sc.nextLine());
         for(Animal animBuscado:cr.animal){
             if(animBuscado.GetCodigo()==cod){
@@ -296,13 +301,42 @@ public class main {
         
     }
     private static void opcion11(){
-        System.out.println("el saldo mensual de la fundacion es :");
+        System.out.println("El saldo mensual de la fundacion es :");
         double mensual=cr.calcularGastoMensual();
         System.out.println(mensual);
         
     }
+    
+    
+        
     private static void opcion12(){
+        
     //aqui se envian los correos 
+    String asunto = "Informacion";
+    ArrayList<PersonaAdopta> lista = modelo.fundacion.ConsultasRegistrosAdmin
+            .personas;
+    
+    
+
+    
+    for (PersonaAdopta adt: lista){
+        String[] preferencias = adt.preferencia.split(",");
+        List<String> listaNueva = Arrays.asList(preferencias);
+        ArrayList<String> listaPreferencias = new ArrayList<String>(listaNueva);
+        String animalPreferencia = listaPreferencias.get(0);
+        String sexoPreferencia = listaPreferencias.get(1).toUpperCase();
+        int edadPreferencia = Integer.parseInt(listaPreferencias.get(2));
+        cr.enviarCorreo(adt.GetCorreoElectro(), asunto, 
+                emp.consultarAnimal(animalPreferencia,sexoPreferencia,
+                        edadPreferencia));
+        
+//adt.preferencia
+        
+        
+    }
+    
+    
+    
     }
     
     
